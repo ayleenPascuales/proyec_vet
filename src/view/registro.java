@@ -41,6 +41,21 @@ public class registro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        a8 = new javax.swing.JLabel();
+        nombre7 = new javax.swing.JTextField();
+        nombre8 = new javax.swing.JTextField();
+        a9 = new javax.swing.JLabel();
+        a10 = new javax.swing.JLabel();
+        nombre10 = new javax.swing.JTextField();
+        a11 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        a12 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        a13 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        a14 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         a = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
@@ -58,6 +73,7 @@ public class registro extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         a7 = new javax.swing.JLabel();
         nombre6 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,25 +91,38 @@ public class registro extends javax.swing.JFrame {
 
         Rmascota.setBackground(new java.awt.Color(196, 154, 237));
         Rmascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_imgs/circulo.png"))); // NOI18N
+        Rmascota.setContentAreaFilled(false);
+        Rmascota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RmascotaMouseClicked(evt);
+            }
+        });
         jPanel1.add(Rmascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 40, 30));
 
         boton2.setBackground(new java.awt.Color(196, 154, 237));
         boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_imgs/circulo.png"))); // NOI18N
+        boton2.setContentAreaFilled(false);
         boton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 40, 30));
+        jPanel1.add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, 30));
 
         Rdueno.setBackground(new java.awt.Color(196, 154, 237));
         Rdueno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_imgs/circulo.png"))); // NOI18N
+        Rdueno.setContentAreaFilled(false);
+        Rdueno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RduenoMouseClicked(evt);
+            }
+        });
         jPanel1.add(Rdueno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 40, 30));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(47, 22, 57));
-        jLabel4.setText("Datos personales");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 160, 30));
+        jLabel4.setText("Continuar");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 160, 30));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(47, 22, 57));
@@ -108,6 +137,89 @@ public class registro extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        a8.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a8.setForeground(new java.awt.Color(0, 0, 0));
+        a8.setText("Nombre de tu mascota*");
+        jPanel4.add(a8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 170, 25));
+
+        nombre7.setBackground(new java.awt.Color(255, 255, 255));
+        nombre7.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        nombre7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(nombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 160, 30));
+
+        nombre8.setBackground(new java.awt.Color(255, 255, 255));
+        nombre8.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        nombre8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(nombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 160, 30));
+
+        a9.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a9.setForeground(new java.awt.Color(0, 0, 0));
+        a9.setText("Edad de tu mascota*");
+        jPanel4.add(a9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 160, 25));
+
+        a10.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a10.setForeground(new java.awt.Color(0, 0, 0));
+        a10.setText("Tipo de mascota*");
+        jPanel4.add(a10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 130, 20));
+
+        nombre10.setBackground(new java.awt.Color(255, 255, 255));
+        nombre10.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        nombre10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(nombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 160, 30));
+
+        a11.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a11.setForeground(new java.awt.Color(0, 0, 0));
+        a11.setText("Raza de tu mascota*");
+        jPanel4.add(a11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 160, 25));
+
+        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox2.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gato", "Perro", "Hamster", "Otro", " " }));
+        jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 160, 30));
+
+        a12.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a12.setForeground(new java.awt.Color(0, 0, 0));
+        a12.setText("Genero de tu mascota*");
+        jPanel4.add(a12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 170, 20));
+
+        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox3.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hembra ", "Macho", " ", " " }));
+        jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 160, 30));
+
+        a13.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a13.setForeground(new java.awt.Color(0, 0, 0));
+        a13.setText("Esta esterilizado?");
+        jPanel4.add(a13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 130, 20));
+
+        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox4.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        jComboBox4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 160, 30));
+
+        a14.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        a14.setForeground(new java.awt.Color(0, 0, 0));
+        a14.setText("Peso de la mascota");
+        jPanel4.add(a14, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 150, 20));
+
+        jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox5.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        jComboBox5.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 - 5 kg", "6 - 10 kg", "11 -15 kg", "16 - 20 kg", "21 - 25 kg", "+ 26 kg" }));
+        jComboBox5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 160, 30));
+
+        jTabbedPane1.addTab("tab2", jPanel4);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,6 +312,11 @@ public class registro extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 570, 640));
 
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 3, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(47, 22, 57));
+        jLabel7.setText("Datos personales");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 160, 30));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_imgs/nube.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 640));
 
@@ -220,6 +337,16 @@ public class registro extends javax.swing.JFrame {
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton2ActionPerformed
+
+    private void RduenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RduenoMouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_RduenoMouseClicked
+
+    private void RmascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RmascotaMouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_RmascotaMouseClicked
     
     
     /**
@@ -262,30 +389,46 @@ public class registro extends javax.swing.JFrame {
     private javax.swing.JButton Rmascota;
     private javax.swing.JLabel a;
     private javax.swing.JLabel a1;
+    private javax.swing.JLabel a10;
+    private javax.swing.JLabel a11;
+    private javax.swing.JLabel a12;
+    private javax.swing.JLabel a13;
+    private javax.swing.JLabel a14;
     private javax.swing.JLabel a2;
     private javax.swing.JLabel a3;
     private javax.swing.JLabel a4;
     private javax.swing.JLabel a5;
     private javax.swing.JLabel a6;
     private javax.swing.JLabel a7;
+    private javax.swing.JLabel a8;
+    private javax.swing.JLabel a9;
     private javax.swing.JButton boton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     javax.swing.JTextField nombre;
     javax.swing.JTextField nombre1;
+    javax.swing.JTextField nombre10;
     javax.swing.JTextField nombre2;
     javax.swing.JTextField nombre3;
     javax.swing.JTextField nombre4;
     javax.swing.JTextField nombre5;
     javax.swing.JTextField nombre6;
+    javax.swing.JTextField nombre7;
+    javax.swing.JTextField nombre8;
     // End of variables declaration//GEN-END:variables
 }
