@@ -336,6 +336,9 @@ public class registro extends javax.swing.JFrame {
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
         // TODO add your handling code here:
+        login login1 = new login();
+        login1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void RduenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RduenoMouseClicked
