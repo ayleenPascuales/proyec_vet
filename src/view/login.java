@@ -4,6 +4,10 @@
  */
 package view;
 
+import dao.usuarioDAO;
+import javax.swing.JOptionPane;
+import model.Usuario;
+
 /**
  *
  * @author aylee
@@ -37,13 +41,13 @@ public class login extends javax.swing.JFrame {
         rol = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,16 +72,17 @@ public class login extends javax.swing.JFrame {
         jLabel3.setText("ANIMALSLOVE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 280, 40));
 
-        cuenta.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        cuenta.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         cuenta.setForeground(new java.awt.Color(0, 0, 0));
         cuenta.setText("No tiene cuenta?");
         jPanel1.add(cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, 170, 40));
 
         ingreso1.setBackground(new java.awt.Color(255, 255, 255));
-        ingreso1.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        ingreso1.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         ingreso1.setForeground(new java.awt.Color(0, 0, 0));
         ingreso1.setText("Crear cuenta");
         ingreso1.setActionCommand("");
+        ingreso1.setContentAreaFilled(false);
         ingreso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingreso1ActionPerformed(evt);
@@ -104,33 +109,27 @@ public class login extends javax.swing.JFrame {
         rol.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.add(rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 240, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Selecciona tu rol*");
+        jLabel10.setText("Seleccione su rol*");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons_imgs/loginMorado.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 510, 670));
 
-        password.setBackground(new java.awt.Color(255, 255, 255));
-        password.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
-        password.setForeground(new java.awt.Color(0, 0, 0));
-        password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 240, 30));
-
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Ingrese su contraseña*");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 210, 40));
 
-        usuario.setBackground(new java.awt.Color(255, 255, 255));
-        usuario.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
-        usuario.setForeground(new java.awt.Color(0, 0, 0));
-        usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 240, 30));
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        txtUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 240, 30));
 
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 3, 22)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Ingrese su usuario*");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 170, 30));
@@ -146,6 +145,15 @@ public class login extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, 130, 20));
+
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 240, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,12 +172,48 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ingreso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreso1ActionPerformed
-        // TODO add your handling code here:
+        registro registrar = new registro();
+        registrar.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_ingreso1ActionPerformed
 
     private void ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoActionPerformed
-        // TODO add your handling code here:
+        String email = txtUsuario.getText().trim();
+        String password = new String(txtPassword.getPassword());
+
+        if (email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Usuario y contraseña son requeridos",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //instancia para acceder al metodo validar
+        usuarioDAO userDAO = new usuarioDAO();
+        //accedemos al metodo
+        Usuario usuario = userDAO.validarCredenciales(email, password);
+
+        if (usuario != null) {
+            if (userDAO.esAdministrador(usuario)) {
+                JOptionPane.showMessageDialog(this,"Bienvenido Administrador",
+                        "Login Exitoso",
+                        JOptionPane.INFORMATION_MESSAGE); 
+                new Admin().setVisible(true);
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Usuario o contraseña incorrectos",
+                    "Error de Login",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_ingresoActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,8 +266,8 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField password;
     private javax.swing.JComboBox<String> rol;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
