@@ -127,7 +127,7 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 1100, 300));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 3, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(47, 22, 57));
         jLabel2.setText("EMPLEADOS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 180, 46));
@@ -141,7 +141,7 @@ public class Admin extends javax.swing.JFrame {
         jButton5.setText("Actualizar");
         jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton5.setBorderPainted(false);
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 110, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 110, 30));
 
         jScrollPane3.setViewportView(jPanel1);
 
@@ -171,10 +171,10 @@ public class Admin extends javax.swing.JFrame {
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 140, 10));
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 3, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(47, 22, 57));
         jLabel3.setText("CLIENTES");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 180, 46));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 130, 46));
 
         jButton6.setBackground(new java.awt.Color(196, 154, 237));
         jButton6.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
@@ -375,7 +375,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 190, 60));
+        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 60));
 
         jButton4.setBackground(new java.awt.Color(196, 154, 237));
         jButton4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 2, 30)); // NOI18N
@@ -396,7 +396,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton4MouseExited(evt);
             }
         });
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 60));
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 190, 60));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(47, 22, 57));
@@ -430,11 +430,11 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        jTabbedPane1.setSelectedIndex(0);
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
