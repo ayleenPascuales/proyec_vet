@@ -88,7 +88,6 @@ public final class inicioEmpleados extends javax.swing.JFrame {
         comboEdad1 = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         comboTipo1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel9 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -340,7 +339,6 @@ public final class inicioEmpleados extends javax.swing.JFrame {
         comboTipo1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         comboTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perro", "Gato", "Hamster", "Conejo", "Otro..." }));
         jPanel10.add(comboTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 240, 30));
-        jPanel10.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 230, 30));
 
         jScrollPane3.setViewportView(jPanel10);
 
@@ -461,7 +459,6 @@ public final class inicioEmpleados extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
