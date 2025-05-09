@@ -1,24 +1,81 @@
+package view;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
-
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.dao.ClienteDAO;
+import model.dao.ClienteDAOImpl;
+import model.dao.VeterinarioDAO;
+import model.dao.VeterinarioDAOImpl;
+import model.entidades.Cliente;
+import model.entidades.Usuario;
+import model.entidades.Veterinario;
 
 /**
  *
  * @author aylee
  */
+
 public class Admin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Admin
-     */
-    public Admin() {
+    private Usuario usuario;
+    public Admin(Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
+        cargarEmpleados();
+        cargarClientes();
+    }
+    private void cargarEmpleados() {
+    DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+    modelo.setRowCount(0); 
+    
+    VeterinarioDAO vetDao = new VeterinarioDAOImpl();
+    List<Veterinario> empleados = vetDao.obtenerTodosVeterinarios();
+    
+    for (Veterinario emp : empleados) {
+        modelo.addRow(new Object[]{
+            emp.getNumeroDocumento(),
+            emp.getNombres(),
+            emp.getApellidos(),
+            emp.getEmail(),
+            calcularEdad(emp.getFechaNacimiento()),
+            emp.getTelefono(),
+            emp.getCargo(),
+            emp.getExperiencia(),
+            emp.getUser(),
+            "********" // No mostrar contraseña real
+        });
+    }
+}
+    private void cargarClientes() {
+    DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+    modelo.setRowCount(0); // Limpiar tabla
+    
+    ClienteDAO clienteDao = new ClienteDAOImpl();
+    List<Cliente> clientes = clienteDao.obtenerTodosClientes();
+    
+    for (Cliente cli : clientes) {
+        modelo.addRow(new Object[]{
+            cli.getNumeroDocumento(),
+            cli.getNombres(),
+            cli.getApellidos(),
+            cli.getFechaNacimiento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+            cli.getEmail(),
+            cli.getTelefono()
+        });
+    }
     }
 
+    private int calcularEdad(LocalDate fechaNacimiento) {
+    return Period.between(fechaNacimiento, LocalDate.now()).getYears();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +85,8 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupEmpleados = new javax.swing.JPopupMenu();
+        popupClientes = new javax.swing.JPopupMenu();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,8 +134,14 @@ public class Admin extends javax.swing.JFrame {
         jSeparator14 = new javax.swing.JSeparator();
         txtContraseña = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btnContratar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        txtExperiencia = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
+        jNacimiento = new com.toedter.calendar.JCalendar();
         jPanel7 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -141,6 +206,11 @@ public class Admin extends javax.swing.JFrame {
         jButton5.setText("Actualizar");
         jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton5.setBorderPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 110, 30));
 
         jScrollPane3.setViewportView(jPanel1);
@@ -154,13 +224,13 @@ public class Admin extends javax.swing.JFrame {
         jTable2.setForeground(new java.awt.Color(0, 0, 0));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Documento", "Nombre", "Apellido", "Fecha de nacimiento", "Genero", "Email", "Telefono"
+                "Documento", "Nombre", "Apellido", "Fecha de nacimiento", "Email", "Telefono"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -279,40 +349,67 @@ public class Admin extends javax.swing.JFrame {
         jPanel3.add(comboCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 200, 30));
 
         txtUsuario.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 200, -1));
+        jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 200, -1));
 
         jSeparator13.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator13.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 80, 10));
+        jPanel3.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 80, 10));
 
         jLabel14.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(47, 22, 57));
         jLabel14.setText("Usuario:");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, 20));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, -1, 20));
 
         jSeparator14.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 110, 10));
+        jPanel3.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 110, 10));
 
         txtContraseña.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 200, -1));
+        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 200, -1));
 
         jLabel15.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(47, 22, 57));
         jLabel15.setText("Contraseña:");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, 20));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, -1, 20));
 
-        jButton7.setBackground(new java.awt.Color(196, 154, 237));
-        jButton7.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
-        jButton7.setText("Contratar");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton7.setBorderPainted(false);
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 110, -1));
+        btnContratar.setBackground(new java.awt.Color(196, 154, 237));
+        btnContratar.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
+        btnContratar.setText("Contratar");
+        btnContratar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnContratar.setBorderPainted(false);
+        btnContratar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContratarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnContratar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 110, 30));
 
         jLabel16.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(47, 22, 57));
         jLabel16.setText("Nro de documento:");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 20));
+
+        txtExperiencia.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jPanel3.add(txtExperiencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 200, -1));
+
+        jSeparator15.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 170, 10));
+
+        jLabel18.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(47, 22, 57));
+        jLabel18.setText("Años de experiencia:");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, 20));
+
+        jLabel19.setFont(new java.awt.Font("Tw Cen MT", 3, 20)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(47, 22, 57));
+        jLabel19.setText("Fecha de nacimiento:");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, 20));
+
+        jSeparator16.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator16.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 170, 10));
+        jPanel3.add(jNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, 100));
 
         jTabbedPane1.addTab("tab3", jPanel3);
 
@@ -426,7 +523,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseMoved
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-        jButton4.setBackground(new Color(196,154,237));
+        jButton4.setBackground(new Color(196, 154, 237));
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -445,42 +542,151 @@ public class Admin extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContratarActionPerformed
+
+        try {
+            // 1. Obtener datos del formulario
+            String documento = txtDocumento.getText().trim();
+            String nombres = txtNombre.getText().trim();
+            String apellidos = txtApellido.getText().trim();
+            String email = txtEmail.getText().trim();
+            String telefono = txtTelefono.getText().trim();
+            String cargo = (String) comboCargo.getSelectedItem();
+            String experiencia = txtExperiencia.getText().trim();
+            String usuario = txtUsuario.getText().trim();
+            String password = txtContraseña.getText().trim();
+
+            // 2. Validar campos obligatorios
+            if (documento.isEmpty() || nombres.isEmpty() || apellidos.isEmpty()
+                    || email.isEmpty() || telefono.isEmpty() || usuario.isEmpty()
+                    || password.isEmpty() || experiencia.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 3. Validar formato de email
+            if (!email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+                JOptionPane.showMessageDialog(null, "Ingrese un email válido",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 4. Validar experiencia (debe ser número)
+            try {
+                Integer.parseInt(experiencia);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "La experiencia debe ser un número",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 5. Validar usuario único
+            VeterinarioDAO vetDao = new VeterinarioDAOImpl();
+            if (vetDao.existeVeterinarioConUsuario(usuario)) {
+                JOptionPane.showMessageDialog(null,
+                        "El nombre de usuario ya existe",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                txtUsuario.requestFocus();
+                return;
+            }
+            // Validar documento único
+            if (vetDao.existeVeterinarioConDocumento(documento)) {
+                JOptionPane.showMessageDialog(null, "Ya existe un veterinario con este documento",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (password.length() < 6) {
+                JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 6 caracteres",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Validar formato de teléfono
+            if (!telefono.matches("^\\d{10}$")) {
+                JOptionPane.showMessageDialog(null, "El teléfono debe contener exactamente 10 dígitos numéricos",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                txtTelefono.requestFocus();
+                return;
+            }
+            // 6. Calcular fecha de nacimiento (si es necesario)
+            LocalDate fechaNacimiento = LocalDate.now(); // O usar campo específico si lo tienes
+
+            // 7. Crear el nuevo veterinario
+            Veterinario nuevoVet = new Veterinario(
+                    documento,
+                    nombres,
+                    apellidos,
+                    email,
+                    telefono,
+                    cargo,
+                    experiencia,
+                    fechaNacimiento
+            );
+
+            // Asignar usuario y password
+            nuevoVet.setUser(usuario);
+            nuevoVet.setPassword(password); // Deberías hashear la contraseña
+
+            // 8. Guardar en la base de datos
+            if (vetDao.registrarVeterinario(nuevoVet)) {
+                JOptionPane.showMessageDialog(null, "Veterinario contratado exitosamente");
+                // limpiarFormulario();
+                //actualizarTablaVeterinarios();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al guardar el veterinario",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnContratarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Admin().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            //new Admin(Usuario).setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnContratar;
     private javax.swing.JComboBox<String> comboCargo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -488,7 +694,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -498,6 +703,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -505,6 +712,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private com.toedter.calendar.JCalendar jNacimiento;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -521,6 +729,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -531,15 +741,17 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JPopupMenu popupClientes;
+    private javax.swing.JPopupMenu popupEmpleados;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtExperiencia;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
-}
+} 
+
