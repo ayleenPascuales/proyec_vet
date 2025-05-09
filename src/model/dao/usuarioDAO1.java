@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
-
+package model.dao;
+/*
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.FileReader;
-import model.Rol;
-import model.Usuario;
+import model.entidades.Rol;
+import model.entidades.Usuario;
 
 /**
  *
  * @author aylee
- */
-public class usuarioDAO {
+
+
+public class usuarioDAO1 {
     private static final String JSON_FILE = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\usuarios.json";
     
     //validar crendenciales
@@ -51,4 +52,4 @@ public class usuarioDAO {
         return  cliente !=null &&  cliente.getRole()==Rol.CLIENTE;
     }
     
-}
+}*/

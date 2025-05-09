@@ -1,0 +1,46 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model.JsonUtil;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author aylee
+ */
+public class JsonUtil {
+   
+    private static final Gson gson = new Gson();
+
+    public static <T> boolean guardarEnArchivo(String nombreArchivo, List<T> datos) {
+        try (Writer writer = new FileWriter(nombreArchivo)) {
+            gson.toJson(datos, writer);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static <T> List<T> leerDesdeArchivo(String nombreArchivo, Class<T> clase) {
+        File archivo = new File(nombreArchivo);
+        if (!archivo.exists()) {
+            return new ArrayList<>();
+        }
+        
+        try (Reader reader = new FileReader(archivo)) {
+            Type tipoLista = TypeToken.getParameterized(List.class, clase).getType();
+            List<T> lista = gson.fromJson(reader, tipoLista);
+            return lista != null ? lista : new ArrayList<>();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+}
+

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package model.entidades;
 
 import java.time.LocalDate;
 
@@ -15,40 +15,17 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private LocalDate fechaNacimiento;
-    private String sexo;
     private String email;
     private String telefono;
     private Rol role;
 
-    public Persona(String numeroDocumento, String nombres, String apellidos, LocalDate fechaNacimiento, String sexo, String email, String telefono) {
+    public Persona(String numeroDocumento, String nombres, String apellidos, LocalDate fechaNacimiento,String email, String telefono) {
         this.numeroDocumento = numeroDocumento;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
-        this.sexo = sexo;
         this.email = email;
         this.telefono = telefono;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    
-    public Persona(Rol role) {
-        this.role = role;
-    }
-
-    public Rol getRole() {
-        return role;
-    }
-
-    public void setRole(Rol role) {
-        this.role = role;
     }
 
     public String getNumeroDocumento() {
@@ -83,14 +60,6 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -98,7 +67,22 @@ public class Persona {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public Rol getRole() {
+        return role;
+    }
+
+    public void setRole(Rol role) {
+        this.role = role;
+    }
+
     
 }

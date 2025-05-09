@@ -1,23 +1,7 @@
-{
- "usuarios": [
-    {
-      "user": "ayleenP",
-      "password": "ayleen123",
-      "rol": "ADMINISTRADOR"
-    }
-    ,
-    {
-       "user": "santiagoM",
-      "password": "santipro",
-      "rol": "CLIENTE"
-        }
-        ,
-    {
-       "user": "estebanA",
-      "password": "estebanxd",
-      "rol": "VETERIANARIO"
-        }
-
-        
-  ]
-}
+[
+  {
+    "user": "",
+    "password": "",
+    "role": "CLIENTE"
+  }
+]

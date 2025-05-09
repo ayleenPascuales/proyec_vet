@@ -1,23 +1,25 @@
-package model;
+package model.entidades;
+
+import model.entidades.Rol;
+import model.entidades.Persona;
 
 public class Usuario {
     private String user;
     private String password;
     private Rol role;
-    private Persona persona; 
+    //private Persona persona; 
 
-    public Usuario(String user, String password, Rol role, Persona persona) {
+    public Usuario(String user, String password, Rol role) {
         this.user = user;
         this.password = password;
         this.role = role;
-        this.persona = persona;
     }
 
     public String getUser() {
         return user;
     }
 
-    public void setUser(String email) {
+    public void setUser(String user) {
         this.user = user;
     }
 
@@ -37,14 +39,5 @@ public class Usuario {
         this.role = role;
     }
 
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
     
-    
-
 }
