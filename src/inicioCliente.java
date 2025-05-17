@@ -4,18 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import com.toedter.calendar.JDateChooser;
 
-    private void pack() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private Object getContentPane() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    private JTabbedPane jTabbedPane1;
+    
 public class inicioCliente extends javax.swing.JFrame {
 
     // Constantes para índices de pestañas
@@ -25,13 +14,25 @@ public class inicioCliente extends javax.swing.JFrame {
     private static final int TAB_AGENDAR = 3;
 
     // Componentes de la interfaz
-    private JTextField txtDocumento, txtNombreDueno, txtApellidoDueno, txtNombreMascota, txtTelefono;
-    private JComboBox<String> cbTipoAnimal, cbVeterinario, cbMotivoConsulta, cbEdadMascota;
     private JDateChooser dateFecha = new JDateChooser();
 
     public inicioCliente() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         configurarValidaciones();
+        
+    }
+    public void setDefaultCloseOperation(int EXIT_ON_CLOSE) {   
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Object getContentPane() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void pack() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void configurarValidaciones() {
@@ -112,18 +113,8 @@ public class inicioCliente extends javax.swing.JFrame {
     private void mostrarError(String titulo, String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
     }
+        // Métodos de acción mejorados
 
-    // Métodos de acción mejorados
-    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {
-        if (validarFormulario()) {
-            // Aquí iría la lógica para guardar la cita
-            JOptionPane.showMessageDialog(this, 
-                "Cita agendada exitosamente para " + txtNombreMascota.getText(), 
-                "Éxito", 
-                JOptionPane.INFORMATION_MESSAGE);
-            limpiarFormulario();
-        }
-    }
 
     private void limpiarFormulario() {
         txtDocumento.setText("");
@@ -138,29 +129,6 @@ public class inicioCliente extends javax.swing.JFrame {
         dateFecha.setDate(null);
     }
 
-    // Métodos de navegación mejorados
-    private void irAPestana(int indicePestana) {
-        jTabbedPane1.setSelectedIndex(indicePestana);
-    }
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {
-        irAPestana(TAB_INICIO);
-    }
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
-        irAPestana(TAB_AGENDAR);
-    }
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {
-        irAPestana(TAB_AGENDA_CONSULTA);
-    }
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {
-        irAPestana(TAB_HISTORIAL);
-    }
-
-  
-}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -828,7 +796,6 @@ public class inicioCliente extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgendar;
     private javax.swing.JComboBox<String> cbEdadMascota;
@@ -909,6 +876,6 @@ public class inicioCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtTipo;
     private javax.swing.JTextField txtVeterinario;
     // End of variables declaration//GEN-END:variables
-
+}
 
 
