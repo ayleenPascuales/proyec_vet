@@ -21,7 +21,7 @@ import model.entidades.Usuario;
  * @author aylee
  */
 public class AuthController {
-    private static final String USERS_JSON_FILE = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\usuarios.json";
+    private static final String ARCHIVO_USUARIOS = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\usuarios.json";
     private UsuarioDAO usuarioDao;
     private final Gson gson ;
     
@@ -67,7 +67,7 @@ public class AuthController {
         return usuarios.stream().anyMatch(u -> u.getUser().equals(username));
     }
     private List<Usuario> obtenerTodosUsuarios() {
-        try (FileReader reader = new FileReader(USERS_JSON_FILE)) {
+        try (FileReader reader = new FileReader(ARCHIVO_USUARIOS)) {
             Type listType = new TypeToken<ArrayList<Usuario>>(){}.getType();
             return gson.fromJson(reader, listType);
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class AuthController {
         }
     }
      private void guardarUsuariosEnJson(List<Usuario> usuarios) throws Exception {
-        try (FileWriter writer = new FileWriter(USERS_JSON_FILE)) {
+        try (FileWriter writer = new FileWriter(ARCHIVO_USUARIOS)) {
                 gson.toJson(usuarios, writer);
         }catch (Exception e) {
             e.printStackTrace();

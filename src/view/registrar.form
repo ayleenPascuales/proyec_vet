@@ -678,7 +678,7 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="60" y="540" width="170" height="30"/>
+                          <AbsoluteConstraints x="60" y="460" width="170" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -818,7 +818,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="60" y="510" width="150" height="25"/>
+                          <AbsoluteConstraints x="60" y="430" width="150" height="25"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -898,20 +898,10 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="com.toedter.calendar.JCalendar" name="calendarFechaNacimiento">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                            <LineBorder thickness="2"/>
-                          </Border>
-                        </Property>
-                      </Properties>
+                    <Component class="com.toedter.calendar.JDateChooser" name="JDateFecha">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="370" width="200" height="120"/>
+                          <AbsoluteConstraints x="50" y="370" width="180" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>

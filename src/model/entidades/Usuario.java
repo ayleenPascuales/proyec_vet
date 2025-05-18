@@ -37,7 +37,5 @@ public class Usuario {
 
     public void setRole(Rol role) {
         this.role = role;
-    }
-
-    
+    }   
 }

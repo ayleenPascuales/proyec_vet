@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import model.entidades.Usuario;
 
 public class VeterinarioDAOImpl implements VeterinarioDAO {
-    private static final String ARCHIVO_VETERINARIOS = "veterinarios.json";
+    private static final String ARCHIVO_VETERINARIOS = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\veterinarios.json";
     
     @Override
     public boolean registrarVeterinario(Veterinario veterinario) {
