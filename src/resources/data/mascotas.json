@@ -1,0 +1,59 @@
+[
+  {
+    "nombre": "lunita",
+    "edad": "5 años",
+    "especie": "Canino",
+    "raza": "Labrador Retriever",
+    "sexo": "Hembra",
+    "estetilizado": true,
+    "peso": "28.5 kg",
+    "idCliente": "11458963",
+    "dueño": {
+      "numeroDocumento": "11458963",
+      "nombres": "Luisa",
+      "apellidos": "Pérez Martínez",
+      "fechaNacimiento": "1985-03-15",
+      "email": "Luisa.perez@gmail.com",
+      "telefono": "3169854712",
+      "direccion": "Calle Principal 123"
+    }
+  },
+  {
+    "nombre": "Mona",
+    "edad": "3 años",
+    "especie": "Felino",
+    "raza": "Siamés",
+    "sexo": "Hembra",
+    "estetilizado": false,
+    "peso": "4.2 kg",
+    "idCliente": "12658749",
+    "dueño": {
+      "numeroDocumento": "12658749",
+      "nombres": "María",
+      "apellidos": "González López",
+      "fechaNacimiento": "1990-07-22",
+      "email": "maria.gonzalez@hotmail.com",
+      "telefono": "3204589632",
+      "direccion": "Avenida Central 456"
+    }
+  },
+  {
+    "nombre": "Rex",
+    "edad": "7 años",
+    "especie": "Canino",
+    "raza": "Pastor Alemán",
+    "sexo": "Macho",
+    "estetilizado": true,
+    "peso": "35.0 kg",
+    "idCliente": "18936745",
+    "dueño": {
+      "numeroDocumento": "18936745",
+      "nombres": "Carlos",
+      "apellidos": "Rodríguez Sánchez",
+      "fechaNacimiento": "1982-11-30",
+      "email": "carlos.rodriguez@gmail.com",
+      "telefono": "3324569874",
+      "direccion": "Boulevard Norte 789"
+    }
+  }
+]

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author aylee
  */
 public class ClienteDAOImpl implements ClienteDAO {
-    private static final String ARCHIVO_CLIENTES = "clientes.json";
+    private static final String ARCHIVO_CLIENTES = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\clientes.json";
     
     @Override
     public boolean guardarCliente(Cliente cliente) {
@@ -108,27 +108,6 @@ public class ClienteDAOImpl implements ClienteDAO {
             .filter(c -> c.getUser().equals(username))
             .findFirst()
             .orElse(null);
-    }
-    
-    /**
-     * Método adicional para generar un ID único de cliente
-     * @return Un nuevo ID en formato CLIXXX
-     */
-    public String generarNuevoId() {
-        List<Cliente> clientes = obtenerTodosClientes();
-        int maxId = clientes.stream()
-            .map(c -> c.getNumeroDocumento().replace("CLI", ""))
-            .mapToInt(s -> {
-                try {
-                    return Integer.parseInt(s);
-                } catch (NumberFormatException e) {
-                    return 0;
-                }
-            })
-            .max()
-            .orElse(0);
-        
-        return "CLI" + String.format("%03d", maxId + 1);
     }
 } 
 

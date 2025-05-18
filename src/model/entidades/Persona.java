@@ -4,6 +4,7 @@
  */
 package model.entidades;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 
 /**
@@ -27,7 +28,7 @@ public class Persona {
         this.email = email;
         this.telefono = telefono;
     }
-
+   
     public String getNumeroDocumento() {
         return numeroDocumento;
     }
@@ -82,7 +83,5 @@ public class Persona {
 
     public void setRole(Rol role) {
         this.role = role;
-    }
-
-    
+    }    
 }

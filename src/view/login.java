@@ -4,11 +4,14 @@
  */
 package view;
 
+import Zempleados.inicioEmpleados;
+import clientes.inicioCliente;
 import controller.AuthController;
 import model.entidades.Usuario;
 import javax.swing.JOptionPane;
 import model.entidades.Rol;
-import view.registro;
+import view.Admin;
+import view.registrar;
 
 /**
  *
@@ -20,17 +23,19 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     private AuthController authController;
-    
+
     public login() {
         initComponents();
+        this.setLocationRelativeTo(null);
         String[] rolesBonitos = {
-        Rol.ADMINISTRADOR.toString(),
-        Rol.CLIENTE.toString(),
-        Rol.VETERINARIO.toString()
+            Rol.ADMINISTRADOR.toString(),
+            Rol.CLIENTE.toString(),
+            Rol.VETERINARIO.toString()
         };
         comboRol.setModel(new javax.swing.DefaultComboBoxModel<>(rolesBonitos));
         authController = new AuthController();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -181,54 +186,58 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
-        registro registroView = new registro();
+        registrar registroView = new registrar();
         registroView.setVisible(true);
         this.dispose();
 
     }//GEN-LAST:event_registroActionPerformed
 
     private void ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresoActionPerformed
-       String username = txtUsuario.getText().trim();
+        String username = txtUsuario.getText().trim();
         String password = new String(txtPassword.getPassword());
 
         if (username.isEmpty() || password.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Usuario y contraseña son requeridos");
-        return;
+            JOptionPane.showMessageDialog(this, "Usuario y contraseña son requeridos");
+            return;
         }
-        Rol rolSeleccionado = (Rol) comboRol.getSelectedItem();
+        Rol rolSeleccionado = Rol.CLIENTE;
+        if(Rol.ADMINISTRADOR .toString().equalsIgnoreCase(comboRol.getSelectedItem().toString())){
+            rolSeleccionado = Rol.ADMINISTRADOR;
+        }
+        else if(Rol.VETERINARIO .toString().equalsIgnoreCase(comboRol.getSelectedItem().toString())){
+            rolSeleccionado = Rol.VETERINARIO;
+        }
         Usuario usuario = authController.login(username, password, rolSeleccionado);
 
         if (usuario != null) {
-        JOptionPane.showMessageDialog(this, "Bienvenido " + usuario.getUser());
-    
-        // Redirección según el rol del usuario
-        switch(usuario.getRole()) {
-        case ADMINISTRADOR:
-            Admin adminView = new Admin(usuario);
-            adminView.setVisible(true);
-            break;
-        /*case VETERINARIO: // 
-            inicioEmpleados vetView = new inicioEmpleados(usuario);
-            vetView.setVisible(true);
-            break;
-        case CLIENTE:
-            inicioCliente clienteView = new inicioCliente(usuario);
-            clienteView.setVisible(true);
-            break;
-        default:
-            JOptionPane.showMessageDialog(this, "Rol no reconocido", 
-                "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-    }
-    this.dispose();
-} else {
-    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", 
-        "Error", JOptionPane.ERROR_MESSAGE);
-}*/
-        }
+            JOptionPane.showMessageDialog(this, "Bienvenido " + usuario.getUser());
+
+            // Redirección según el rol del usuario
+            switch (usuario.getRole()) {
+                case ADMINISTRADOR:
+                    Admin adminView = new Admin(usuario);
+                    adminView.setVisible(true);
+                    break;
+                case VETERINARIO:
+                    inicioEmpleados vetView = new inicioEmpleados(usuario);
+                    vetView.setVisible(true);
+                    break;
+                case CLIENTE:
+                    inicioCliente clienteView = new inicioCliente(usuario);
+                    clienteView.setVisible(true);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Rol no reconocido",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+            }
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos",
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ingresoActionPerformed
-        
+
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed

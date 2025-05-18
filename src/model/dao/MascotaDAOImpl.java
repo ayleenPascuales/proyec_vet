@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author aylee
  */
 public class MascotaDAOImpl implements MascotaDAO {
-    private static final String ARCHIVO_MASCOTAS = "mascotas.json";
+    private static final String ARCHIVO_MASCOTAS = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\mascotas.json";
     
     @Override
     public boolean registrarMascota(Mascota mascota) {
@@ -28,20 +28,4 @@ public class MascotaDAOImpl implements MascotaDAO {
                 .filter(m -> m.getIdCliente().equals(idCliente))
                 .collect(Collectors.toList());
     }
-
-    @Override
-    public Mascota obtenerMascotaPorId(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean actualizarMascota(Mascota mascota) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean eliminarMascota(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

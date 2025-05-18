@@ -9,8 +9,6 @@ import java.util.List;
 public interface MascotaDAO {
     boolean registrarMascota(Mascota mascota);
     List<Mascota> obtenerMascotasPorCliente(String idCliente);
-    Mascota obtenerMascotaPorId(String id);
-    boolean actualizarMascota(Mascota mascota);
-    boolean eliminarMascota(String id);
+    
 }
 

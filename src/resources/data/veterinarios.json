@@ -1,0 +1,26 @@
+[
+  {
+    "numeroDocumento": "11459876",
+    "nombres": "María",
+    "apellidos": "González López",
+    "fechaNacimiento": "1985-05-15",
+    "email": "maria.gonzalez@animalslove.co",
+    "telefono": "3141234567",
+    "user": "mgonzalez",
+    "password": "vet123secure",
+    "cargo": "Cirujano",
+    "experiencia": "10"
+  },
+  {
+    "numeroDocumento": "110569874",
+    "nombres": "Carlos",
+    "apellidos": "Rodríguez Méndez",
+    "fechaNacimiento": "1990-08-22",
+    "email": "carlos.rodriguez@animalslove.co",
+    "telefono": "3217654321",
+    "user": "crodriguez",
+    "password": "vet456secure",
+    "cargo": "Veterinario",
+    "experiencia": "3"
+  }
+]

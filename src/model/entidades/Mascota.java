@@ -19,7 +19,7 @@ public class Mascota extends Animal {
     public Mascota(Cliente dueño, String idCliente, String nombre, String edad, String especie, String raza, String sexo, boolean estetilizado, String peso) {
         super(nombre, edad, especie, raza, sexo, estetilizado, peso);
         this.dueño = dueño;
-        this.idCliente = idCliente;
+        this.idCliente= idCliente;
     }
 
     public Cliente getDueño() {
@@ -28,7 +28,7 @@ public class Mascota extends Animal {
 
     public void setDueño(Cliente dueño) {
         this.dueño = dueño;
-    }
+    }  
 
     public String getIdCliente() {
         return idCliente;
@@ -37,10 +37,5 @@ public class Mascota extends Animal {
     public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
-
     
-
-    
-   
-   
 }
