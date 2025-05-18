@@ -4,19 +4,22 @@
  */
 package model.dao;
 
-import java.io.File;
+import model.entidades.Registros;
 import java.util.List;
-import model.entidades.Persona;
+
 
 /**
  *
  * @author aylee
  */
-public class registrosDAO {
-    
-    /*lista de registros
-    public List<Persona> cargarRegistros() {
-        File archivo = new File(JSON_FILE);
-    }*/
-    
+public interface RegistrosDAO {
+
+    void crear(Registros registro) throws IllegalArgumentException;
+
+    boolean existeUsuario(String usuario);
+
+    boolean existeEmail(String email);
+
+    List<Registros> obtenerTodos();
 }
+
