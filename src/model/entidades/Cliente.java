@@ -17,7 +17,9 @@ public class Cliente extends Persona{
         super(numeroDocumento, nombres, apellidos, fechaNacimiento, email, telefono);
         this.user = user;
     }
-     
+
+    
+
     public String getUser() {
         return user;
     }

@@ -15,7 +15,6 @@ import model.dao.ClienteDAOImpl;
 import model.dao.VeterinarioDAO;
 import model.dao.VeterinarioDAOImpl;
 import model.entidades.Cliente;
-import model.entidades.Rol;
 import model.entidades.Usuario;
 import model.entidades.Veterinario;
 
@@ -26,10 +25,9 @@ import model.entidades.Veterinario;
 
 public class Admin extends javax.swing.JFrame {
 
-    private static Usuario usuario;
+    private Usuario usuario;
     public Admin(Usuario usuario) {
         initComponents();
-        this.setLocationRelativeTo(null);
         this.usuario = usuario;
         cargarEmpleados();
         cargarClientes();
@@ -379,11 +377,6 @@ public class Admin extends javax.swing.JFrame {
         btnContratar.setText("Contratar");
         btnContratar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnContratar.setBorderPainted(false);
-        btnContratar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnContratarMouseClicked(evt);
-            }
-        });
         btnContratar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContratarActionPerformed(evt);
@@ -416,7 +409,7 @@ public class Admin extends javax.swing.JFrame {
         jSeparator16.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator16.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 170, 10));
-        jPanel3.add(jNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 210, 100));
+        jPanel3.add(jNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, 100));
 
         jTabbedPane1.addTab("tab3", jPanel3);
 
@@ -555,12 +548,107 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContratarActionPerformed
 
-        
-    }//GEN-LAST:event_btnContratarActionPerformed
+        try {
+            // 1. Obtener datos del formulario
+            String documento = txtDocumento.getText().trim();
+            String nombres = txtNombre.getText().trim();
+            String apellidos = txtApellido.getText().trim();
+            String email = txtEmail.getText().trim();
+            String telefono = txtTelefono.getText().trim();
+            String cargo = (String) comboCargo.getSelectedItem();
+            String experiencia = txtExperiencia.getText().trim();
+            String usuario = txtUsuario.getText().trim();
+            String password = txtContraseña.getText().trim();
 
-    private void btnContratarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContratarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnContratarMouseClicked
+            // 2. Validar campos obligatorios
+            if (documento.isEmpty() || nombres.isEmpty() || apellidos.isEmpty()
+                    || email.isEmpty() || telefono.isEmpty() || usuario.isEmpty()
+                    || password.isEmpty() || experiencia.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 3. Validar formato de email
+            if (!email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+                JOptionPane.showMessageDialog(null, "Ingrese un email válido",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 4. Validar experiencia (debe ser número)
+            try {
+                Integer.parseInt(experiencia);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "La experiencia debe ser un número",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 5. Validar usuario único
+            VeterinarioDAO vetDao = new VeterinarioDAOImpl();
+            if (vetDao.existeVeterinarioConUsuario(usuario)) {
+                JOptionPane.showMessageDialog(null,
+                        "El nombre de usuario ya existe",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                txtUsuario.requestFocus();
+                return;
+            }
+            // Validar documento único
+            if (vetDao.existeVeterinarioConDocumento(documento)) {
+                JOptionPane.showMessageDialog(null, "Ya existe un veterinario con este documento",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (password.length() < 6) {
+                JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 6 caracteres",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Validar formato de teléfono
+            if (!telefono.matches("^\\d{10}$")) {
+                JOptionPane.showMessageDialog(null, "El teléfono debe contener exactamente 10 dígitos numéricos",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                txtTelefono.requestFocus();
+                return;
+            }
+            // 6. Calcular fecha de nacimiento (si es necesario)
+            LocalDate fechaNacimiento = LocalDate.now(); // O usar campo específico si lo tienes
+
+            // 7. Crear el nuevo veterinario
+            Veterinario nuevoVet = new Veterinario(
+                    documento,
+                    nombres,
+                    apellidos,
+                    email,
+                    telefono,
+                    cargo,
+                    experiencia,
+                    fechaNacimiento
+            );
+
+            // Asignar usuario y password
+            nuevoVet.setUser(usuario);
+            nuevoVet.setPassword(password); // Deberías hashear la contraseña
+
+            // 8. Guardar en la base de datos
+            if (vetDao.registrarVeterinario(nuevoVet)) {
+                JOptionPane.showMessageDialog(null, "Veterinario contratado exitosamente");
+                // limpiarFormulario();
+                //actualizarTablaVeterinarios();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al guardar el veterinario",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnContratarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,10 +678,9 @@ public class Admin extends javax.swing.JFrame {
     //</editor-fold>
 
     /* Create and display the form */
-    
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new Admin(usuario).setVisible(true);
+            //new Admin(Usuario).setVisible(true);
         }
     });
 }

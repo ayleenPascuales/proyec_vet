@@ -1,20 +1,9 @@
 [
   {
-        "user": "user1",
-        "numeroDocumento": "102030405",
-        "nombres": "Juan",
-        "apellidos": "Pérez",
-        "fechaNacimiento": "1990-01-01",
-        "email": "juan@hotmail.com",
-        "telefono": "3152236547"
-    },
-    {
-        "user": "user2",
-        "numeroDocumento": "405060708",
-        "nombres": "María",
-        "apellidos": "Gómez",
-        "fechaNacimiento": "1995-05-15",
-        "email": "maria@gmail.com",
-        "telefono": "3145234578"
-    } 
+    "id": "CLI001",
+    "nombre": "Juan Pérez",
+    "telefono": "5551234567",
+    "email": "juan@example.com",
+    "username": "cliente1"
+  }
 ]

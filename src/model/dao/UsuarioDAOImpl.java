@@ -11,7 +11,7 @@ import java.util.List;
  * @author aylee
  */
 public class UsuarioDAOImpl implements UsuarioDAO {
-    private static final String ARCHIVO_USUARIOS = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\usuarios.json";
+    private static final String ARCHIVO_USUARIOS = "usuarios.json";
 
     @Override
     public boolean registrarUsuario(Usuario usuario) {
@@ -37,12 +37,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override
     public Usuario obtenerUsuarioPorUsername(String username) {
-        List<Usuario> usuarios = JsonUtil.leerDesdeArchivo(ARCHIVO_USUARIOS, Usuario.class);
-           return usuarios.stream()
-            .filter(u -> u.getUser().equals(username))
-            .findFirst()
-            .orElse(null);
-}
-    
-    
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
 }

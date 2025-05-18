@@ -1,22 +1,7 @@
 [
   {
-    "user": "ayleenP",
-    "password": "ayleen123",
-    "role": "ADMINISTRADOR"
-  },
-  {
-    "user": "estebanA",
-    "password": "esteban123",
-    "role": "VETERINARIO"
-  },
-  {
-    "user": "santiagoM",
-    "password": "santiago123",
-    "role": "CLIENTE"
-  },
-  {
-    "user": "pedroJimenez",
-    "password": "pedro123",
+    "user": "",
+    "password": "",
     "role": "CLIENTE"
   }
 ]

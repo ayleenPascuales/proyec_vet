@@ -4,8 +4,6 @@
  */
 package proyecto4;
 
-import view.Admin;
-
 /**
  *
  * @author aylee
@@ -17,8 +15,6 @@ public class Proyecto4 {
      */
     public static void main(String[] args) {
         System.out.println("PROBANDO FUSION DE RAMAS");
-        
-        
     }
     
 }

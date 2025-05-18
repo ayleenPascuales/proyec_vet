@@ -10,7 +10,6 @@ import controller.AuthController;
 import controller.ClienteController;
 import controller.MascotaController;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -25,16 +24,19 @@ import model.entidades.Rol;
  *
  * @author aylee
  */
-public class registrar extends javax.swing.JFrame {
+public class registro extends javax.swing.JFrame {
 
     private AuthController authController;
     private ClienteController clienteController;
     private MascotaController mascotaController;
    
-    public registrar() {
+    
+
+    
+    public registro() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        JDateFecha.setDateFormatString("dd/MM/yyyy");
+        calendarFechaNacimiento = new com.toedter.calendar.JCalendar();
+        //calendarFechaNacimiento.setDateFormatString("dd/MM/yyyy");
         authController = new AuthController();
         clienteController = new ClienteController();
         mascotaController = new MascotaController();
@@ -91,7 +93,7 @@ public class registrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        JDateFecha = new com.toedter.calendar.JDateChooser();
+        calendarFechaNacimiento = new com.toedter.calendar.JCalendar();
         jPanel7 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -282,7 +284,7 @@ public class registrar extends javax.swing.JFrame {
 
         txtDocumento.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         txtDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel3.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 170, 30));
+        jPanel3.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 170, 30));
 
         a2.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         a2.setForeground(new java.awt.Color(0, 0, 0));
@@ -319,7 +321,7 @@ public class registrar extends javax.swing.JFrame {
         a6.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         a6.setForeground(new java.awt.Color(0, 0, 0));
         a6.setText("Nro de documento*");
-        jPanel3.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 150, 25));
+        jPanel3.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 150, 25));
 
         a7.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
         a7.setForeground(new java.awt.Color(0, 0, 0));
@@ -340,7 +342,10 @@ public class registrar extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 230, 10));
-        jPanel3.add(JDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 180, 30));
+
+        calendarFechaNacimiento.setBackground(new java.awt.Color(255, 255, 255));
+        calendarFechaNacimiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel3.add(calendarFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 200, 120));
 
         jTabbedPane1.addTab("tab1", jPanel3);
 
@@ -382,19 +387,16 @@ public class registrar extends javax.swing.JFrame {
             String numeroDocumento = txtDocumento.getText().trim();
             String nombres = txtNombre.getText().trim();
             String apellidos = txtApellido.getText().trim();
+            //LocalDate fechaNacimiento = parseFecha(calendarFechaNacimiento.get;
             
-           Date fechaNacimientoDate = JDateFecha.getDate();
-        if (fechaNacimientoDate == null) {
+            Date fechaNacimientoDate = calendarFechaNacimiento.getDate();
+            if (fechaNacimientoDate == null) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fecha de nacimiento");
             return;
-        }
-        LocalDate fechaNacimiento = fechaNacimientoDate.toInstant()
-                                      .atZone(ZoneId.systemDefault())
-                                      .toLocalDate();
-        if (Period.between(fechaNacimiento, LocalDate.now()).getYears() < 18) {
-            JOptionPane.showMessageDialog(this, "Debes ser mayor de 18 años para registrarte");
-            return;
-        }
+            }
+            LocalDate fechaNacimiento = fechaNacimientoDate.toInstant()
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate();
             String email = txtEmail.getText().trim();
             String telefono = txtTelefono.getText().trim();
             String username = txtUser.getText().trim();
@@ -431,6 +433,10 @@ public class registrar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Registro exitoso! Ahora puede iniciar sesión");
             new login().setVisible(true);
             this.dispose();
+            
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(this, "Formato de fecha inválido. Use dd/MM/yyyy", 
+                "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage(), 
                 "Error", JOptionPane.ERROR_MESSAGE);
@@ -472,7 +478,7 @@ public class registrar extends javax.swing.JFrame {
         String especie = (String) comboTipoMascota.getSelectedItem();
         String raza = txtRazaMascota.getText().trim();
         String sexo = (String) comboGeneroMascota.getSelectedItem();
-        boolean esterilizado = comboEsterilizado.getSelectedItem().equals("Si");
+        boolean esterilizado = (boolean) comboEsterilizado.getSelectedItem();
         String peso = (String) comboPesoMascota.getSelectedItem();
         
         if (nombreMascota.isEmpty() || edad.isEmpty() || raza.isEmpty()) {
@@ -510,27 +516,25 @@ public class registrar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new registrar().setVisible(true);
+                new registro().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser JDateFecha;
     private javax.swing.JButton Rdueno;
     private javax.swing.JButton Rmascota;
     private javax.swing.JLabel a;
@@ -548,6 +552,7 @@ public class registrar extends javax.swing.JFrame {
     private javax.swing.JLabel a7;
     private javax.swing.JLabel a8;
     private javax.swing.JLabel a9;
+    private com.toedter.calendar.JCalendar calendarFechaNacimiento;
     private javax.swing.JComboBox<String> comboEsterilizado;
     private javax.swing.JComboBox<String> comboGeneroMascota;
     private javax.swing.JComboBox<String> comboPesoMascota;

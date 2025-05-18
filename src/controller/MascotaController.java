@@ -44,6 +44,29 @@ public class MascotaController {
         return mascotaDao.obtenerMascotasPorCliente(idCliente);
     }
     
+   
+    public Mascota obtenerMascotaPorId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            return null;
+        }
+        return mascotaDao.obtenerMascotaPorId(id);
+    }
+    
+   
+    /*public boolean actualizarMascota(Mascota mascota) {
+        if (mascota == null || mascota.getId() == null) {
+            return false;
+        }
+        return mascotaDao.actualizarMascota(mascota);
+    }*/
+    
+    public boolean eliminarMascota(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            return false;
+        }
+        return mascotaDao.eliminarMascota(id);
+    }
+    
     public boolean validarMascota(Mascota mascota) {
         if (mascota == null) return false;
         if (mascota.getNombre() == null || mascota.getNombre().trim().isEmpty()) return false;
@@ -53,6 +76,8 @@ public class MascotaController {
         if (mascota.getSexo()== null || mascota.getSexo().trim().isEmpty()) return false;
         //if (mascota.isEstetilizado()== null || mascota.isEstetilizado().trim().isEmpty()) return false;
         if (mascota.getPeso() == null || mascota.getPeso().trim().isEmpty()) return false;
+        if (mascota.getIdCliente() == null || mascota.getIdCliente().trim().isEmpty()) return false;
+        
         return true;
     }
 }

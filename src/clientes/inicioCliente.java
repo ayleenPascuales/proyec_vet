@@ -1,7 +1,5 @@
 package clientes;
 
-import model.entidades.Usuario;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -17,11 +15,8 @@ public class inicioCliente extends javax.swing.JFrame {
     /**
      * Creates new form inicioCliente
      */
-    private static Usuario usuario;
-    public inicioCliente(Usuario usuario) {
+    public inicioCliente() {
         initComponents();
-        this.usuario = usuario;
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -44,6 +39,31 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        consultar1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtDocumento1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtNombre1 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        txtEdad = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtApellido1 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        txtMotivo = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txtTelefono1 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        fecha = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        txtTipo = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        txtVeterinario = new javax.swing.JTextField();
+        imagen3 = new javax.swing.JLabel();
+        imagen4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -82,37 +102,9 @@ public class inicioCliente extends javax.swing.JFrame {
         comboVet = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        comboHora = new javax.swing.JComboBox<>();
-        jLabel38 = new javax.swing.JLabel();
         imagen1 = new javax.swing.JLabel();
         imagen2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        consultar1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtDocumento1 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtNombre1 = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        txtEdad = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtApellido1 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        txtMotivo = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        txtTelefono1 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        hora = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        txtTipo = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        txtVeterinario = new javax.swing.JTextField();
-        imagen3 = new javax.swing.JLabel();
-        imagen4 = new javax.swing.JLabel();
-        fecha1 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,7 +192,7 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesSanti/44.png"))); // NOI18N
         jPanel9.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 100, 100));
 
-        getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 850, 80));
+        getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 850, 100));
 
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,13 +200,182 @@ public class inicioCliente extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        consultar1.setBackground(new java.awt.Color(196, 154, 237));
+        consultar1.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
+        consultar1.setText("Consultar");
+        consultar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultar1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(consultar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 100, 30));
+
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 3, 50)); // NOI18N
+        jLabel11.setText("Agenda de consulta previa");
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel14.setText("Nro de documento:");
+        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+
+        txtDocumento1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtDocumento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDocumento1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtDocumento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 190, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel12.setText("Nombre del dueño:");
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+
+        txtNombre1.setEditable(false);
+        txtNombre1.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jPanel7.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 190, -1));
+
+        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel33.setText("Edad de la mascota:");
+        jPanel7.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
+
+        txtEdad.setEditable(false);
+        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdad.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEdadActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 190, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel13.setText("Apellido del dueño:");
+        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+
+        txtApellido1.setEditable(false);
+        txtApellido1.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellido1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtApellido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellido1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 190, -1));
+
+        jLabel32.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel32.setText("MOTIVO DE LA CONSULTA:");
+        jPanel7.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, -1, -1));
+
+        txtMotivo.setEditable(false);
+        txtMotivo.setBackground(new java.awt.Color(255, 255, 255));
+        txtMotivo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jPanel7.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 370, 30));
+
+        jLabel24.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel24.setText("Nro de telefono:");
+        jPanel7.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
+
+        txtTelefono1.setEditable(false);
+        txtTelefono1.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtTelefono1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefono1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 190, -1));
+
+        jLabel31.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel31.setText("Fecha de la cita:");
+        jPanel7.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+
+        fecha.setEditable(false);
+        fecha.setBackground(new java.awt.Color(255, 255, 255));
+        fecha.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaActionPerformed(evt);
+            }
+        });
+        jPanel7.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 190, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel34.setText("Tipo de mascota:");
+        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
+
+        txtTipo.setEditable(false);
+        txtTipo.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 190, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
+        jLabel30.setText("Veterinario(a):");
+        jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, -1, -1));
+
+        txtVeterinario.setEditable(false);
+        txtVeterinario.setBackground(new java.awt.Color(255, 255, 255));
+        txtVeterinario.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        txtVeterinario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVeterinarioActionPerformed(evt);
+            }
+        });
+        jPanel7.add(txtVeterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 590, 190, -1));
+
+        imagen3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Downloads\\GG.jpg")); // NOI18N
+        jPanel7.add(imagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -30, 740, 720));
+
+        imagen4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\OneDrive\\Escritorio\\GG2.jpg")); // NOI18N
+        jPanel7.add(imagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, 690));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 73, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(jPanel3);
+
+        jTabbedPane1.addTab("tab5", jScrollPane3);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 730, 330));
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 470));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Downloads\\YY2.png")); // NOI18N
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 730, 330));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\OneDrive\\Escritorio\\32f7ea08-00a6-4865-9eeb-d777bc293d9c (1).png")); // NOI18N
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 470));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 155, Short.MAX_VALUE))
+        );
 
         jTabbedPane1.addTab("inicio", jPanel1);
 
@@ -240,13 +401,13 @@ public class inicioCliente extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre Dueño", "Tipo", "Edad", "Motivo", "Fecha", "Mascota", "Veterinario"
+                "nombre", "raza", "edad", "Motivo", "Fecha", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -262,7 +423,11 @@ public class inicioCliente extends javax.swing.JFrame {
             }
         });
         jPanel8.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 100, 30));
+
+        imagen5.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Downloads\\GG.jpg")); // NOI18N
         jPanel8.add(imagen5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 0, 760, 652));
+
+        imagen6.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\OneDrive\\Escritorio\\GG2.jpg")); // NOI18N
         jPanel8.add(imagen6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 380, 650));
 
         jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -300,7 +465,6 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel23.setText("Nro de telefono:");
         jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 180, -1));
 
-        comboTipo.setBackground(new java.awt.Color(255, 255, 255));
         comboTipo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perro", "Gato", "Hamster", "Conejo", "Otro..." }));
         jPanel5.add(comboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 250, 30));
@@ -316,7 +480,6 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel20.setText("Seleccione la edad de su mascota:");
         jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
 
-        comboEdad.setBackground(new java.awt.Color(255, 255, 255));
         comboEdad.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         comboEdad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 año", "2 años", "3 años", "4 años", "5 años", "6 o más años" }));
         comboEdad.addActionListener(new java.awt.event.ActionListener() {
@@ -337,13 +500,12 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel22.setText("Motivo de la consulta");
         jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
-        comboMotivo.setBackground(new java.awt.Color(255, 255, 255));
         comboMotivo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        comboMotivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta - $40.000", "Vacunacion - $80.000", "Esterilizacion - $170.000", "Laboratorio - $20.000-$50.000", "Peluqueria y baño - $45.000" }));
+        comboMotivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta - $40.000", "Vacunacion - $80.000", "Esterilizacion - $170.000", "Examenes de laboratorio - $20.000-$50.000", "Peluqueria y baño - $45.000" }));
         jPanel5.add(comboMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, -1, 30));
 
         jLabel25.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel25.setText("Seleccione la fecha y hora de la consulta:");
+        jLabel25.setText("Seleccione la fecha para la consulta:");
         jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, -1));
 
         txtTelefono.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
@@ -365,7 +527,6 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel27.setText("Veterinario:");
         jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 180, -1));
 
-        comboVet.setBackground(new java.awt.Color(255, 255, 255));
         comboVet.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         comboVet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,172 +543,19 @@ public class inicioCliente extends javax.swing.JFrame {
         jLabel37.setText("Nro de documento:");
         jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 180, 30));
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 170, 30));
+        imagen1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Downloads\\GG.jpg")); // NOI18N
+        jPanel5.add(imagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 10, 770, 720));
 
-        comboHora.setBackground(new java.awt.Color(255, 255, 255));
-        comboHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel5.add(comboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 170, 30));
+        imagen2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\OneDrive\\Escritorio\\GG2.jpg")); // NOI18N
+        jPanel5.add(imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 280, 730));
 
         jLabel38.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
         jLabel38.setText("Nro de documento:");
         jPanel5.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 180, 30));
-        jPanel5.add(imagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 20, 770, 720));
-        jPanel5.add(imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 280, 730));
 
         jScrollPane2.setViewportView(jPanel5);
 
         jTabbedPane1.addTab("tab4", jScrollPane2);
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        consultar1.setBackground(new java.awt.Color(196, 154, 237));
-        consultar1.setFont(new java.awt.Font("Tw Cen MT", 3, 18)); // NOI18N
-        consultar1.setText("Consultar");
-        consultar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultar1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(consultar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 100, 30));
-
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 3, 50)); // NOI18N
-        jLabel11.setText("Agenda de consulta previa");
-        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel14.setText("Nro de documento:");
-        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
-
-        txtDocumento1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtDocumento1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDocumento1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtDocumento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 190, -1));
-
-        jLabel12.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel12.setText("Nombre del dueño:");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
-
-        txtNombre1.setEditable(false);
-        txtNombre1.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombre1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        jPanel7.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 190, -1));
-
-        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel33.setText("Edad de la mascota:");
-        jPanel7.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
-
-        txtEdad.setEditable(false);
-        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
-        txtEdad.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEdadActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 190, -1));
-
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel13.setText("Apellido del dueño:");
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
-
-        txtApellido1.setEditable(false);
-        txtApellido1.setBackground(new java.awt.Color(255, 255, 255));
-        txtApellido1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtApellido1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 190, -1));
-
-        jLabel32.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel32.setText("MOTIVO DE LA CONSULTA:");
-        jPanel7.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, -1, -1));
-
-        txtMotivo.setEditable(false);
-        txtMotivo.setBackground(new java.awt.Color(255, 255, 255));
-        txtMotivo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        jPanel7.add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 340, 30));
-
-        jLabel24.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel24.setText("Nro de telefono:");
-        jPanel7.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
-
-        txtTelefono1.setEditable(false);
-        txtTelefono1.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefono1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtTelefono1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefono1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 190, -1));
-
-        jLabel31.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel31.setText("Fecha y hora de la cita:");
-        jPanel7.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
-
-        hora.setEditable(false);
-        hora.setBackground(new java.awt.Color(255, 255, 255));
-        hora.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        hora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaActionPerformed(evt);
-            }
-        });
-        jPanel7.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 190, -1));
-
-        jLabel34.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel34.setText("Tipo de mascota:");
-        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
-
-        txtTipo.setEditable(false);
-        txtTipo.setBackground(new java.awt.Color(255, 255, 255));
-        txtTipo.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 190, -1));
-
-        jLabel30.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
-        jLabel30.setText("Veterinario(a):");
-        jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, -1, -1));
-
-        txtVeterinario.setEditable(false);
-        txtVeterinario.setBackground(new java.awt.Color(255, 255, 255));
-        txtVeterinario.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        txtVeterinario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVeterinarioActionPerformed(evt);
-            }
-        });
-        jPanel7.add(txtVeterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 620, 190, -1));
-        jPanel7.add(imagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -30, 740, 720));
-        jPanel7.add(imagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, 690));
-
-        fecha1.setEditable(false);
-        fecha1.setBackground(new java.awt.Color(255, 255, 255));
-        fecha1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
-        fecha1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fecha1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 190, -1));
-
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, 908, -1));
-
-        jScrollPane3.setViewportView(jPanel3);
-
-        jTabbedPane1.addTab("tab5", jScrollPane3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 64, 847, 660));
 
@@ -586,9 +594,9 @@ public class inicioCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefono1ActionPerformed
 
-    private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
+    private void fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_horaActionPerformed
+    }//GEN-LAST:event_fechaActionPerformed
 
     private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
         // TODO add your handling code here:
@@ -647,10 +655,6 @@ public class inicioCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void fecha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecha1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fecha1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -681,22 +685,20 @@ public class inicioCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inicioCliente(usuario).setVisible(true);
+                new inicioCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboEdad;
-    private javax.swing.JComboBox<String> comboHora;
     private javax.swing.JComboBox<String> comboMotivo;
     private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JComboBox<String> comboVet;
     private javax.swing.JButton consultar;
     private javax.swing.JButton consultar1;
     private javax.swing.JButton consultar2;
-    private javax.swing.JTextField fecha1;
-    private javax.swing.JTextField hora;
+    private javax.swing.JTextField fecha;
     private javax.swing.JLabel imagen1;
     private javax.swing.JLabel imagen2;
     private javax.swing.JLabel imagen3;
@@ -708,7 +710,6 @@ public class inicioCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
