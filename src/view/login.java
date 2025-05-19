@@ -5,7 +5,7 @@
 package view;
 
 import Zempleados.inicioEmpleados;
-import clientes.inicioCliente;
+import clientes.inicioClienteNw;
 import controller.AuthController;
 import model.entidades.Usuario;
 import javax.swing.JOptionPane;
@@ -223,7 +223,7 @@ public class login extends javax.swing.JFrame {
                     vetView.setVisible(true);
                     break;
                 case CLIENTE:
-                    inicioCliente clienteView = new inicioCliente(usuario);
+                    inicioClienteNw clienteView = new inicioClienteNw(usuario);
                     clienteView.setVisible(true);
                     break;
                 default:

@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.Calendar;
 import java.util.Date;
 import com.toedter.calendar.JDateChooser;
+import model.entidades.Usuario;
 
     
 public class inicioClienteNw extends javax.swing.JFrame {
@@ -17,9 +18,12 @@ public class inicioClienteNw extends javax.swing.JFrame {
 
     // Componentes de la interfaz
     private JDateChooser dateFecha = new JDateChooser();
+     private static Usuario usuario;
 
-    public inicioClienteNw() {
+    public inicioClienteNw(Usuario usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.usuario = usuario;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         configurarValidaciones();
@@ -221,15 +225,15 @@ public class inicioClienteNw extends javax.swing.JFrame {
         jLabel7.setText("HISTORIAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 90, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 890, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 890, 80));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/YY2.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 730, 330));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 730, 330));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/32f7ea08-00a6-4865-9eeb-d777bc293d9c (1).png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 960, 830));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 890, 830));
 
         jTabbedPane1.addTab("inicio", jPanel2);
 
@@ -414,13 +418,13 @@ public class inicioClienteNw extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 680, 260));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 680, 220));
 
         imagen5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GG.jpg"))); // NOI18N
         jPanel5.add(imagen5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 0, 810, 840));
 
         imagen6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GG2.jpg"))); // NOI18N
-        jPanel5.add(imagen6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 310, 840));
+        jPanel5.add(imagen6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 310, 850));
 
         jScrollPane3.setViewportView(jPanel5);
 
@@ -544,7 +548,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab5", jScrollPane4);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 890, 450));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 890, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -639,7 +643,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inicioClienteNw().setVisible(true);
+                new inicioClienteNw(usuario).setVisible(true);
             }
         });
     }
