@@ -1,3 +1,5 @@
+package clientes;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Calendar;
@@ -123,10 +125,17 @@ public class inicioClienteNw extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -150,6 +159,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
         txtVeterinario = new javax.swing.JTextField();
         imagen3 = new javax.swing.JLabel();
         imagen4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -159,6 +169,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         imagen5 = new javax.swing.JLabel();
         imagen6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -187,6 +198,30 @@ public class inicioClienteNw extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1333.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 100));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 2, 14)); // NOI18N
+        jLabel4.setText("INICIO");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 50, 30));
+
+        jLabel5.setFont(new java.awt.Font("Serif", 3, 14)); // NOI18N
+        jLabel5.setText("AGENDA");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 60, 30));
+
+        jLabel6.setFont(new java.awt.Font("Serif", 3, 14)); // NOI18N
+        jLabel6.setText("AGENDAR");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 70, 30));
+
+        jLabel7.setFont(new java.awt.Font("Serif", 3, 14)); // NOI18N
+        jLabel7.setText("HISTORIAL");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 90, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 890, -1));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -334,7 +369,9 @@ public class inicioClienteNw extends javax.swing.JFrame {
         imagen4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GG2.jpg"))); // NOI18N
         jPanel3.add(imagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 300, 850));
 
-        jTabbedPane1.addTab("agenda de consulta", jPanel3);
+        jScrollPane2.setViewportView(jPanel3);
+
+        jTabbedPane1.addTab("tab5", jScrollPane2);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -385,7 +422,9 @@ public class inicioClienteNw extends javax.swing.JFrame {
         imagen6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GG2.jpg"))); // NOI18N
         jPanel5.add(imagen6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 310, 840));
 
-        jTabbedPane1.addTab("historial", jPanel5);
+        jScrollPane3.setViewportView(jPanel5);
+
+        jTabbedPane1.addTab("tab5", jScrollPane3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -501,7 +540,9 @@ public class inicioClienteNw extends javax.swing.JFrame {
         imagen2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/GG2.jpg"))); // NOI18N
         jPanel4.add(imagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 290, 840));
 
-        jTabbedPane1.addTab("agendar consulta", jPanel4);
+        jScrollPane4.setViewportView(jPanel4);
+
+        jTabbedPane1.addTab("tab5", jScrollPane4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 890, 450));
 
@@ -627,6 +668,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -644,11 +686,19 @@ public class inicioClienteNw extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtApellido1;
