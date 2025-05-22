@@ -28,12 +28,12 @@ public class HistorialDAOImpl implements HistorialDAO {
     }
 
     @Override
-    public Historial buscarPorId(String numeroDocumento) {
-        return obtenerTodos().stream()
-                .filter(h -> h.getNumeroDocumento().equals(numeroDocumento))
-                .findFirst()
-                .orElse(null);
-    }
+    public List<Historial> obtenerPorDocumento(String numeroDocumento) {
+    return obtenerTodos().stream()
+            .filter(h -> h.getNumeroDocumento().equals(numeroDocumento))
+            .collect(Collectors.toList());
+}
+
 
     @Override
     public List<Historial> obtenerTodos() {

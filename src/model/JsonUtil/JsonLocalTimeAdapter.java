@@ -3,27 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.JsonUtil;
+
 import com.google.gson.*;
 import java.lang.reflect.Type;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-/**
- *
- * @author aylee
- */
-public class JsonLocalTimeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+public class JsonLocalTimeAdapter implements JsonSerializer<LocalTime>, JsonDeserializer<LocalTime> {
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
 
     @Override
-    public JsonElement serialize(LocalDateTime dateTime, Type type, JsonSerializationContext context) {
-        return new JsonPrimitive(dateTime.format(formatter));
+    public JsonElement serialize(LocalTime time, Type type, JsonSerializationContext context) {
+        return new JsonPrimitive(time.format(formatter));
     }
 
     @Override
-    public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext context)
+    public LocalTime deserialize(JsonElement json, Type type, JsonDeserializationContext context)
             throws JsonParseException {
-        return LocalDateTime.parse(json.getAsString(), formatter);
+        return LocalTime.parse(json.getAsString(), formatter);
     }
 }
+
 

@@ -3,14 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.dao;
+
 import model.entidades.Usuario;
 import model.JsonUtil.JsonUtil;
 import java.util.List;
+
 /**
  *
  * @author aylee
  */
 public class UsuarioDAOImpl implements UsuarioDAO {
+
     private static final String ARCHIVO_USUARIOS = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\usuarios.json";
 
     @Override
@@ -38,11 +41,16 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     @Override
     public Usuario obtenerUsuarioPorUsername(String username) {
         List<Usuario> usuarios = JsonUtil.leerDesdeArchivo(ARCHIVO_USUARIOS, Usuario.class);
-           return usuarios.stream()
-            .filter(u -> u.getUser().equals(username))
-            .findFirst()
-            .orElse(null);
-}
-    
-    
+        return usuarios.stream()
+                .filter(u -> u.getUser().equals(username))
+                .findFirst()
+                .orElse(null);
+    }
+     @Override
+    public void guardarUsuario(Usuario usuario) {
+        List<Usuario> listaUsuarios = JsonUtil.leerDesdeArchivo(ARCHIVO_USUARIOS, Usuario.class);
+        listaUsuarios.add(usuario);
+        JsonUtil.guardarEnArchivo(ARCHIVO_USUARIOS, listaUsuarios);
+    }
+
 }

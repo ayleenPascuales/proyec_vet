@@ -1,20 +1,20 @@
 [
   {
-    "numeroDocumento": "87654321",
-    "nombreDueño": "Carlos López",
-    "tipo": "Perro",
-    "edad": 5,
-    "motivoConsulta": "Vacunación anual",
-    "fechaConsulta": "2023-11-15",
-    "nombreMascota": "Max",
-    "veterinario": "Dra. Rodríguez"
+    "numeroDocumento": "11223344",
+    "nombreDueño": "Luisa Gómez",
+    "tipo": "Gato",
+    "edad": 4,
+    "motivoConsulta": "Consulta",
+    "fechaConsulta": "2023-11-10",
+    "nombreMascota": "Rocky",
+    "veterinario": "Dr. Jiménez"
   },
   {
     "numeroDocumento": "12345678",
     "nombreDueño": "Ana Martínez",
     "tipo": "Gato",
     "edad": 2,
-    "motivoConsulta": "Chequeo general",
+    "motivoConsulta": "Consulta",
     "fechaConsulta": "2023-11-20",
     "nombreMascota": "Luna",
     "veterinario": "Dr. Pérez"

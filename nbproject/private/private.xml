@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/model/entidades/Usuario.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/view/login.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/controller/AuthController.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/controller/ClienteController.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/model/dao/usuarioDAO1.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/view/Admin.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/view/registro.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/model/entidades/Rol.java</file>
-            <file>file:/C:/Users/aylee/OneDrive/Documentos/NetBeansProjects/proyecto4/src/controller/RegistroController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

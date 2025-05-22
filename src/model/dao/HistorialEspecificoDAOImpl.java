@@ -15,7 +15,7 @@ import model.JsonUtil.JsonUtil;
  */
 public class HistorialEspecificoDAOImpl implements HistorialEspecificoDAO {
     
-    private static final String ARCHIVO_HISTORIAL_ESPECIFICO= "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\historiales_especificos.json";
+    private static final String ARCHIVO_HISTORIAL_ESPECIFICO= "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\historialEspecifico.json";
     
     public HistorialEspecificoDAOImpl() {
         // Inicializar el archivo si no existe
@@ -30,11 +30,10 @@ public class HistorialEspecificoDAOImpl implements HistorialEspecificoDAO {
     }
 
     @Override
-    public HistorialEspecifico buscarPorId(String numeroDocumento) {
+    public List<HistorialEspecifico> buscarPorDocumento(String numeroDocumento) {
         return obtenerTodos().stream()
-                .filter(h -> h.getNumeroDocumento().equals(numeroDocumento))
-                .findFirst()
-                .orElse(null);
+            .filter(h -> h.getNumeroDocumento().equals(numeroDocumento))
+            .collect(Collectors.toList());
     }
 
     @Override

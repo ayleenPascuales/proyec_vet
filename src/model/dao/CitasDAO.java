@@ -12,9 +12,9 @@ import model.entidades.Citas;
  */
 public interface CitasDAO {
     void crear(Citas cita);
-    Citas buscarPorId(String numeroDocumento);
+    public Citas buscarPorDocumentoYNombreMascota(String documento, String nombreMascota);
     List<Citas> obtenerTodas();
     void eliminar(String numeroDocumento);
-    List<Citas> buscarPorNombreMascota(String nombreMascota);
+    
 }
 

@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import model.dao.ClienteDAO;
 import model.dao.ClienteDAOImpl;
 import model.entidades.Cliente;
-import model.entidades.Mascota;
 /**
  *
  * @author aylee

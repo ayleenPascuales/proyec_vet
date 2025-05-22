@@ -1,28 +1,41 @@
 [
   {
-    "numeroDocumento": "33445566",
+    "numeroDocumento": "1145987568",
     "nombreDueno": "Marta Rojas",
     "apellidoDueno": "Vargas",
     "telefono": "3125478963",
     "nombreMascota": "Toby",
     "tipoAnimal": "Perro",
     "edadMascota": 7,
-    "motivoConsulta": "Limpieza dental",
-    "tipoConsulta": "Odontología",
-    "fechaHoraConsulta": "2023-12-05T10:30:00",
-    "veterinario": "Dr. Castillo"
+    "motivoConsulta": "Baño y peluqueria - $80.000",
+    "fechaConsulta": "2023-12-05",
+    "horaConsulta": "09:45:00",
+    "veterinario": "Carlos Rodríguez Méndez"
   },
   {
-    "numeroDocumento": "77889900",
+    "numeroDocumento": "1019547869",
     "nombreDueno": "Jorge Méndez",
     "apellidoDueno": "Silva",
     "telefono": "3215588741",
     "nombreMascota": "Misi",
     "tipoAnimal": "Gato",
     "edadMascota": 3,
-    "motivoConsulta": "Esterilización",
-    "tipoConsulta": "Cirugía",
-    "fechaHoraConsulta": "2023-12-12T08:00:00",
-    "veterinario": "Dra. Navarro"
+    "motivoConsulta": "Esterilizacion - $170.000",
+    "fechaConsulta": "2023-12-12",
+    "horaConsulta": "08:30:00",
+    "veterinario": "Carlos Rodríguez Méndez"
+  },
+  {
+    "numeroDocumento": "42365233",
+    "nombreDueno": "Libia",
+    "apellidoDueno": "Rondon",
+    "telefono": "3103503965",
+    "nombreMascota": "Koncho",
+    "tipoAnimal": "Perro",
+    "edadMascota": 4,
+    "motivoConsulta": "Esterilizacion - $170.000",
+    "fechaConsulta": "2025-07-17",
+    "horaConsulta": "10:00:00",
+    "veterinario": "María González López"
   }
 ]

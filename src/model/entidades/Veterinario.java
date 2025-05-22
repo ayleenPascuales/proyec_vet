@@ -17,21 +17,20 @@ import java.util.List;
  *
  * @author aylee
  */
-public class Veterinario extends Persona{
-    
+public class Veterinario extends Persona {
+
     private String user;
     private String password;
     private String cargo;
     private String experiencia;
-    private List<Mascota> mascotas = new ArrayList<>();
-    private List<Citas> citas = new ArrayList<>();
-    private List<Historial> historial = new ArrayList<>();
 
-    public Veterinario(String numeroDocumento, String nombres, String apellidos, String email, String telefono, String cargo, String experiencia, LocalDate fechaNacimiento) {
-    super(numeroDocumento, nombres, apellidos, fechaNacimiento, email, telefono);
-    this.cargo = cargo;
-    this.experiencia = experiencia;
-}
+    public Veterinario(String numeroDocumento, String nombres, String apellidos, LocalDate fechaNacimiento, String email, String telefono, String cargo, String experiencia, String user, String password) {
+        super(numeroDocumento, nombres, apellidos, fechaNacimiento, email, telefono);
+        this.user = user;
+        this.password = password;
+        this.cargo = cargo;
+        this.experiencia = experiencia;
+    }
 
     public String getUser() {
         return user;
@@ -65,29 +64,7 @@ public class Veterinario extends Persona{
         this.experiencia = experiencia;
     }
 
-    public List<Mascota> getMascotas() {
-        return mascotas;
+    public String toString() {
+        return getNombres() + " " + getApellidos();
     }
-
-    public void setMascotas(List<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
-
-    public List<Citas> getCitas() {
-        return citas;
-    }
-
-    public void setCitas(List<Citas> citas) {
-        this.citas = citas;
-    }
-
-    public List<Historial> getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(List<Historial> historial) {
-        this.historial = historial;
-    }
-
-    
 }

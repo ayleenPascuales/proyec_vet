@@ -13,7 +13,7 @@ import model.entidades.Historial;
 public interface HistorialDAO {
  
     void crear(Historial historial);
-    Historial buscarPorId(String numeroDocumento);
+   List<Historial> obtenerPorDocumento(String numeroDocumento);
     List<Historial> obtenerTodos();
     void eliminar(String numeroDocumento);
     //List<Historial> buscarPorNombreMascota(String nombreMascota);

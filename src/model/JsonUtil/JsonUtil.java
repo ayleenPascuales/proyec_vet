@@ -8,14 +8,13 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
-import static java.lang.Math.log;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import model.JsonUtil.JsonLocalDateAdapter;
+import model.JsonUtil.JsonLocalTimeAdapter;
 /**
  *
  * @author aylee
@@ -23,9 +22,11 @@ import model.JsonUtil.JsonLocalDateAdapter;
 public class JsonUtil {
    
     private static final Gson gson = new GsonBuilder()
-        .registerTypeAdapter(LocalDate.class, new JsonLocalDateAdapter())
-        .registerTypeAdapter(LocalDateTime.class, new JsonLocalTimeAdapter())
-        .create();
+    .registerTypeAdapter(LocalDate.class, new JsonLocalDateAdapter())
+    .registerTypeAdapter(LocalTime.class, new JsonLocalTimeAdapter())         // ← Nuevo
+    .setPrettyPrinting()
+    .create();
+
     
     public static <T> boolean guardarEnArchivo(String nombreArchivo, List<T> datos) {
         try (Writer writer = new FileWriter(nombreArchivo)) {
@@ -69,7 +70,5 @@ public class JsonUtil {
         return new ArrayList<>();
     }
 }
-    
-
 }
 

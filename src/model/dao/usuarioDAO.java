@@ -13,6 +13,6 @@ public interface UsuarioDAO {
     boolean registrarUsuario(Usuario usuario);
     Usuario autenticar(String username, String password);
     boolean existeUsuario(String username);
-
+    public void guardarUsuario(Usuario usuario);
     public Usuario obtenerUsuarioPorUsername(String username);
 }

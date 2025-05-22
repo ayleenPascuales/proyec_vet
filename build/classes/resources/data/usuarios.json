@@ -13,5 +13,10 @@
     "user": "santiagoM",
     "password": "santiago123",
     "role": "CLIENTE"
+  },
+  {
+    "user": "pedroJimenez",
+    "password": "pedro123",
+    "role": "CLIENTE"
   }
 ]

@@ -12,7 +12,7 @@ import model.entidades.HistorialEspecifico;
  */
 public interface HistorialEspecificoDAO {
     void crear(HistorialEspecifico historial);
-    HistorialEspecifico buscarPorId(String numeroDocumento);
+    List<HistorialEspecifico> buscarPorDocumento(String numeroDocumento);
     List<HistorialEspecifico> obtenerTodos();
     List<HistorialEspecifico> buscarPorNombreMascota(String nombreMascota);
     List<HistorialEspecifico> buscarPorNombreDueño(String nombreDueño);

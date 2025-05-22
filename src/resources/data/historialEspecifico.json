@@ -1,30 +1,58 @@
 [
   {
-    "numeroDocumento": "11223344",
-    "nombreDueño": "Luisa Fernández",
     "apellido": "Gómez",
     "telefono": "3142256987",
-    "veterinario": "Dr. Jiménez",
-    "fechaConsulta": "2023-11-10",
-    "nombreMascota": "Rocky",
     "generoMascota": "Macho",
+    "diagnostico": "Fractura en pata delantera",
+    "numeroDocumento": "11223344",
+    "nombreDueño": "Luisa",
     "tipo": "Gato",
     "edad": 4,
-    "diagnostico": "Fractura en pata delantera",
-    "motivoConsulta": "Accidente en casa"
+    "motivoConsulta": "Accidente en casa",
+    "fechaConsulta": "2023-11-10",
+    "nombreMascota": "Rocky",
+    "veterinario": "Dr. Jiménez"
   },
   {
-    "numeroDocumento": "55667788",
-    "nombreDueño": "Pedro Sánchez",
     "apellido": "Ruiz",
     "telefono": "3224778569",
-    "veterinario": "Dra. Morales",
-    "fechaConsulta": "2023-11-18",
-    "nombreMascota": "Nala",
     "generoMascota": "Hembra",
+    "diagnostico": "Alergia alimentaria",
+    "numeroDocumento": "55667788",
+    "nombreDueño": "Pedro Sánchez",
     "tipo": "Perro",
     "edad": 1,
-    "diagnostico": "Alergia alimentaria",
-    "motivoConsulta": "Problemas digestivos"
+    "motivoConsulta": "Problemas digestivos",
+    "fechaConsulta": "2023-11-18",
+    "nombreMascota": "Nala",
+    "veterinario": "Dra. Morales"
+  },
+  {
+    "apellido": "Rondon",
+    "telefono": "3103503965",
+    "generoMascota": "Macho",
+    "diagnostico": "Dermatitis, shampoo y pastillas",
+    "numeroDocumento": "42365233",
+    "nombreDueño": "Libia",
+    "tipo": "Perro",
+    "edad": 4,
+    "motivoConsulta": "Problemas de piel",
+    "fechaConsulta": "2025-08-22",
+    "nombreMascota": "Koncho",
+    "veterinario": "María González López"
+  },
+  {
+    "apellido": "mendis",
+    "telefono": "3210456778",
+    "generoMascota": "Hembra ",
+    "diagnostico": "Fiebre alta",
+    "numeroDocumento": "73188643",
+    "nombreDueño": "santiago",
+    "tipo": "Perro",
+    "edad": 1,
+    "motivoConsulta": "Consulta",
+    "fechaConsulta": "2025-05-23",
+    "nombreMascota": "lulu",
+    "veterinario": "María González López"
   }
 ]

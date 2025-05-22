@@ -28,14 +28,6 @@ public class CitasDAOImpl implements CitasDAO {
     }
 
     @Override
-    public Citas buscarPorId(String numeroDocumento) {
-        return obtenerTodas().stream()
-                .filter(c -> c.getNumeroDocumento().equals(numeroDocumento))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
     public List<Citas> obtenerTodas() {
         return JsonUtil.leerDesdeArchivo(ARCHIVO_CITAS, Citas.class);
     }
@@ -47,11 +39,15 @@ public class CitasDAOImpl implements CitasDAO {
         JsonUtil.guardarEnArchivo(ARCHIVO_CITAS, citas);
     }
 
-    @Override
-    public List<Citas> buscarPorNombreMascota(String nombreMascota) {
-        return obtenerTodas().stream()
-                .filter(c -> c.getNombreMascota().toLowerCase().contains(nombreMascota.toLowerCase()))
-                .collect(Collectors.toList());
-    }
+   @Override
+public Citas buscarPorDocumentoYNombreMascota(String documento, String nombreMascota) {
+    return obtenerTodas().stream()
+        .filter(c -> c.getNumeroDocumento().trim().equalsIgnoreCase(documento.trim()) &&
+                     c.getNombreMascota().trim().equalsIgnoreCase(nombreMascota.trim()))
+        .findFirst()
+        .orElse(null);
+}
+
+
 }
 

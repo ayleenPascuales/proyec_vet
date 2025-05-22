@@ -5,7 +5,7 @@
 package model.dao;
 import model.entidades.Veterinario;
 import java.util.List;
-import model.entidades.Usuario;
+
 /**
  *
  * @author aylee
