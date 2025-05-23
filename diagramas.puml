@@ -1,0 +1,40 @@
+@startuml
+class java.time.LocalDate
+class java.time.LocalDateTime
+class java.time.LocalTime
+class java.util.ArrayList
+class java.util.List
+class model.entidades.Animal
+class model.entidades.Citas
+class model.entidades.Cliente
+class model.entidades.Historial
+class model.entidades.HistorialEspecifico
+class model.entidades.Mascota
+class model.entidades.Persona
+class model.entidades.Registros
+class model.entidades.Usuario
+class model.entidades.Veterinario
+enum model.entidades.Rol
+model.entidades.Citas ..> java.time.LocalDate
+model.entidades.Citas ..> java.time.LocalDateTime
+model.entidades.Citas ..> java.time.LocalTime
+model.entidades.Cliente ..> java.time.LocalDate
+model.entidades.Cliente --|> model.entidades.Persona
+model.entidades.Historial ..> java.time.LocalDate
+model.entidades.HistorialEspecifico ..> java.time.LocalDate
+model.entidades.HistorialEspecifico --|> model.entidades.Historial
+model.entidades.Mascota --|> model.entidades.Animal
+model.entidades.Mascota ..> model.entidades.Cliente
+model.entidades.Persona ..> java.time.LocalDate
+model.entidades.Registros ..> java.time.LocalDate
+model.entidades.Usuario ..> model.entidades.Persona
+model.entidades.Usuario ..> model.entidades.Rol
+model.entidades.Veterinario ..> java.time.LocalDate
+model.entidades.Veterinario ..> java.util.ArrayList
+model.entidades.Veterinario ..> java.util.List
+model.entidades.Veterinario ..> model.entidades.Citas
+model.entidades.Veterinario ..> model.entidades.Historial
+model.entidades.Veterinario ..> model.entidades.Mascota
+model.entidades.Veterinario --|> model.entidades.Persona
+model.entidades.Veterinario ..> model.entidades.Rol
+@enduml

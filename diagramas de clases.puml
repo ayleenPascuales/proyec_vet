@@ -1,0 +1,104 @@
+@startuml
+class Zempleados.inicioEmpleados
+class clientes.inicioClienteNw
+class com.google.gson.Gson
+class com.google.gson.GsonBuilder
+class com.google.gson.JsonSyntaxException
+class com.google.gson.reflect.TypeToken
+class com.toedter.calendar.JDateChooser
+class controller.AuthController
+class controller.CitasController
+class controller.ClienteController
+class controller.HistorialEspecificoController
+class controller.MascotaController
+class controller.VetController
+class java.awt.BorderLayout
+class java.awt.Color
+class java.awt.event.ActionEvent
+class java.awt.event.ActionListener
+class java.io.FileReader
+class java.io.FileWriter
+class java.lang.reflect.Type
+class java.net.URL
+class java.time.LocalDate
+class java.time.LocalDateTime
+class java.time.LocalTime
+class java.time.Period
+class java.time.ZoneId
+class java.time.format.DateTimeFormatter
+class java.time.format.DateTimeParseException
+class java.util.ArrayList
+class java.util.Calendar
+class java.util.Date
+class java.util.List
+class java.util.Map
+class java.util.stream.Collectors
+class javax.swing.JFrame
+class javax.swing.JOptionPane
+class javax.swing.JScrollPane
+class javax.swing.JTextArea
+class javax.swing.table.DefaultTableModel
+class model.JsonUtil.JsonLocalDateAdapter
+class model.JsonUtil.JsonLocalTimeAdapter
+class model.JsonUtil.JsonUtil
+class model.dao.CitasDAOImpl
+class model.dao.ClienteDAOImpl
+class model.dao.HistorialDAOImpl
+class model.dao.HistorialEspecificoDAOImpl
+class model.dao.MascotaDAOImpl
+class model.dao.RegistrosDAOImpl
+class model.dao.UsuarioDAOImpl
+class model.dao.VeterinarioDAOImpl
+class model.entidades.Animal
+class model.entidades.Citas
+class model.entidades.Cliente
+class model.entidades.Historial
+class model.entidades.HistorialEspecifico
+class model.entidades.Mascota
+class model.entidades.Persona
+class model.entidades.Registros
+class model.entidades.Usuario
+class model.entidades.Veterinario
+class org.jfree.chart.ChartFactory
+class org.jfree.chart.ChartPanel
+class org.jfree.chart.JFreeChart
+class org.jfree.data.general.DefaultPieDataset
+class proyecto4.Proyecto4
+class view.Admin
+class view.HistorialView
+class view.login
+class view.registrar
+enum model.entidades.Rol
+interface model.JsonUtil.JsonDeserializer
+interface model.JsonUtil.JsonSerializer
+interface model.dao.CitasDAO
+interface model.dao.ClienteDAO
+interface model.dao.HistorialDAO
+interface model.dao.HistorialEspecificoDAO
+interface model.dao.MascotaDAO
+interface model.dao.RegistrosDAO
+interface model.dao.UsuarioDAO
+interface model.dao.VeterinarioDAO
+Zempleados.inicioEmpleados --|> javax.swing.JFrame
+clientes.inicioClienteNw --|> javax.swing.JFrame
+model.JsonUtil.JsonLocalDateAdapter --|> model.JsonUtil.JsonDeserializer
+model.JsonUtil.JsonLocalDateAdapter --|> model.JsonUtil.JsonSerializer
+model.JsonUtil.JsonLocalTimeAdapter --|> model.JsonUtil.JsonDeserializer
+model.JsonUtil.JsonLocalTimeAdapter --|> model.JsonUtil.JsonSerializer
+model.dao.CitasDAOImpl --|> model.dao.CitasDAO
+model.dao.ClienteDAOImpl --|> model.dao.ClienteDAO
+model.dao.HistorialDAOImpl --|> model.dao.HistorialDAO
+model.dao.HistorialEspecificoDAOImpl --|> model.dao.HistorialEspecificoDAO
+model.dao.MascotaDAOImpl --|> model.dao.MascotaDAO
+model.dao.RegistrosDAOImpl --|> model.dao.RegistrosDAO
+model.dao.UsuarioDAOImpl --|> model.dao.UsuarioDAO
+model.dao.VeterinarioDAOImpl --|> model.dao.VeterinarioDAO
+model.entidades.Cliente --|> model.entidades.Persona
+model.entidades.HistorialEspecifico --|> model.entidades.Historial
+model.entidades.Mascota --|> model.entidades.Animal
+model.entidades.Veterinario --|> model.entidades.Persona
+view.Admin --|> javax.swing.JFrame
+view.HistorialView --|> javax.swing.JFrame
+view.login --|> javax.swing.JFrame
+view.registrar --|> javax.swing.JFrame
+@enduml
