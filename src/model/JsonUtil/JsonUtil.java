@@ -51,24 +51,19 @@ public class JsonUtil {
     public static <T> List<T> leerDesdeArchivo(String nombreArchivo, Class<T> clase) {
     File archivo = new File(nombreArchivo);
 
-    if (!archivo.exists()) {
-        return new ArrayList<>();
-    }
-    if (archivo.length() == 0) {
+    if (!archivo.exists() || archivo.length() == 0) {
         return new ArrayList<>();
     }
     try (Reader reader = new FileReader(archivo)) {
         Type tipoLista = TypeToken.getParameterized(List.class, clase).getType();
         List<T> lista = gson.fromJson(reader, tipoLista);
+        System.out.println("Lista cargada de archivo (" + nombreArchivo + "): " + (lista != null ? lista.size() : 0));
         return lista != null ? lista : new ArrayList<>();
-    } catch (JsonSyntaxException e) {
-        System.err.println("El archivo JSON está mal formado: " + nombreArchivo);
-        e.printStackTrace();
-        return new ArrayList<>();
-    } catch (IOException e) {
+    } catch (Exception e) {
         e.printStackTrace();
         return new ArrayList<>();
     }
 }
+
 }
 

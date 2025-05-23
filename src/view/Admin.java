@@ -6,6 +6,7 @@ package view;
  */
 import controller.CitasController;
 import controller.VetController;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.Period;
@@ -13,16 +14,24 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.dao.ClienteDAO;
 import model.dao.ClienteDAOImpl;
+import model.dao.UsuarioDAO;
+import model.dao.UsuarioDAOImpl;
 import model.dao.VeterinarioDAO;
 import model.dao.VeterinarioDAOImpl;
 import model.entidades.Cliente;
 import model.entidades.Rol;
 import model.entidades.Usuario;
 import model.entidades.Veterinario;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -38,6 +47,36 @@ public class Admin extends javax.swing.JFrame {
         this.usuario = usuario;
         cargarEmpleados();
         cargarClientes();
+        mostrarGraficaUsuarios();
+    }
+
+    public ChartPanel crearGraficaUsuarios() {
+        UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+        List<Usuario> usuarios = usuarioDAO.obtenerTodos();
+
+        Map<String, Long> conteoRoles = usuarios.stream()
+                .collect(Collectors.groupingBy(u -> u.getRole().toString(), Collectors.counting()));
+
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        conteoRoles.forEach(dataset::setValue);
+
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Total de Usuarios por Rol",
+                dataset,
+                true, true, false
+        );
+        chart.setBackgroundPaint(Color.WHITE);
+        chart.getPlot().setBackgroundPaint(Color.WHITE);
+
+        return new ChartPanel(chart);
+    }
+
+    private void mostrarGraficaUsuarios() {
+        jPanel7.removeAll();
+        jPanel7.setLayout(new BorderLayout());
+        jPanel7.add(crearGraficaUsuarios(), BorderLayout.CENTER);
+        jPanel7.validate();
+        jPanel7.repaint();
     }
 
     private void cargarEmpleados() {
@@ -81,7 +120,7 @@ public class Admin extends javax.swing.JFrame {
             });
         }
     }
-   
+
     public boolean esSoloLetras(String texto) {
         return texto.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+");
     }
@@ -97,21 +136,21 @@ public class Admin extends javax.swing.JFrame {
     public boolean esTelefonoValido(String telefono) {
         return telefono.matches("\\d{10}");
     }
-    
+
     public boolean validarEdad(LocalDate fechaNacimiento) {
-    LocalDate fechaActual = LocalDate.now();
-    if (fechaNacimiento.isAfter(fechaActual)) {
-        JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
-        return false;
-    }
-    int edad = Period.between(fechaNacimiento, fechaActual).getYears();
-    
-    if (edad < 18) {
-        JOptionPane.showMessageDialog(null, "Debe ser mayor de edad. Edad calculada: " + edad);
-        return false;
-    }
-    
-    return true;
+        LocalDate fechaActual = LocalDate.now();
+        if (fechaNacimiento.isAfter(fechaActual)) {
+            JOptionPane.showMessageDialog(null, "La fecha de nacimiento no puede ser futura.");
+            return false;
+        }
+        int edad = Period.between(fechaNacimiento, fechaActual).getYears();
+
+        if (edad < 18) {
+            JOptionPane.showMessageDialog(null, "Debe ser mayor de edad. Edad calculada: " + edad);
+            return false;
+        }
+
+        return true;
     }
 
     public boolean validarCamposVeterinario() {
@@ -139,12 +178,12 @@ public class Admin extends javax.swing.JFrame {
             return false;
         }
         VeterinarioDAO veterinarioDAO = new VeterinarioDAOImpl();
-        if (veterinarioDAO.existeVeterinarioConDocumento(documento)){
+        if (veterinarioDAO.existeVeterinarioConDocumento(documento)) {
             JOptionPane.showMessageDialog(null, "El número de documento ya está registrado. Por favor ingrese otro.");
-            txtDocumento.requestFocus(); 
+            txtDocumento.requestFocus();
             return false;
         }
-        
+
         if (!esSoloLetras(nombre)) {
             JOptionPane.showMessageDialog(null, "El apellido debe contener solo letras.");
             return false;
@@ -159,7 +198,7 @@ public class Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Correo electrónico inválido.");
             return false;
         }
-        
+
         if (!esTelefonoValido(telefono)) {
             JOptionPane.showMessageDialog(null, "Teléfono inválido. Debe tener 10 dígitos.");
             return false;
@@ -660,7 +699,7 @@ public class Admin extends javax.swing.JFrame {
         if (!validarCamposVeterinario()) {
             return;
         }
-        
+
         // Convertir fecha del JDateChooser a LocalDate
         LocalDate fecha = JDateAdmin.getDate().toInstant()
                 .atZone(ZoneId.systemDefault())
@@ -695,7 +734,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContratarMouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       cargarClientes();
+        cargarClientes();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

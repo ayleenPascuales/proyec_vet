@@ -18,5 +18,21 @@
     "user": "pedroJimenez",
     "password": "pedro123",
     "role": "CLIENTE"
-  }
+  },
+  {
+    "user": "mgonzalez",
+    "password": "vet123secure",
+     "role": "VETERINARIO"
+    }
+    ,
+  {
+    "user": "crodriguez",
+    "password": "vet456secure",
+     "role": "VETERINARIO"
+    },
+    {
+    "user": "mgarcia",
+    "password": "vet789secure",
+     "role": "VETERINARIO"
+    }
 ]

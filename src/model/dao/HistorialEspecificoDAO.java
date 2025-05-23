@@ -16,5 +16,6 @@ public interface HistorialEspecificoDAO {
     List<HistorialEspecifico> obtenerTodos();
     List<HistorialEspecifico> buscarPorNombreMascota(String nombreMascota);
     List<HistorialEspecifico> buscarPorNombreDueño(String nombreDueño);
+    List<HistorialEspecifico> buscarPorDocumentoYFecha(String numeroDocumento, LocalDate fechaConsulta);
 }
 

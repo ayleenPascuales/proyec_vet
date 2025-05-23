@@ -54,5 +54,19 @@
     "fechaConsulta": "2025-05-23",
     "nombreMascota": "lulu",
     "veterinario": "María González López"
+  },
+  {
+    "apellido": "Rondon",
+    "telefono": "3103503965",
+    "generoMascota": "Macho",
+    "diagnostico": "Dermatitis, shampoo y pastillas",
+    "numeroDocumento": "42365233",
+    "nombreDueño": "Libia",
+    "tipo": "Perro",
+    "edad": 4,
+    "motivoConsulta": "Problemas de piel",
+    "fechaConsulta": "2025-07-22",
+    "nombreMascota": "Luna",
+    "veterinario": "María González López"
   }
 ]

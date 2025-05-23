@@ -4,7 +4,10 @@
  */
 package view;
 
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import model.entidades.Historial;
+import model.entidades.HistorialEspecifico;
 import model.entidades.Usuario;
 
 /**
@@ -16,12 +19,31 @@ public class HistorialView extends javax.swing.JFrame {
     /**
      * Creates new form HistorialView
      */
-    private static Historial historial;
+    private static HistorialEspecifico historial;
     
-    public HistorialView(Historial historial) {
+    public HistorialView(HistorialEspecifico historial) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.historial = historial;
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        mostrarDatos();
+        
+    }
+    private void mostrarDatos() {
+        txtDocumento.setText(historial.getNumeroDocumento());
+        txtNombre.setText(historial.getNombreDueño());
+        txtApellido.setText(historial.getApellido());
+        txtTelefono5.setText(historial.getTelefono());
+        txtVeterinario.setText(historial.getVeterinario());
+        txtFecha.setText(historial.getFechaConsulta().toString());
+        txtMascota.setText(historial.getNombreMascota());
+        txtGenero.setText(historial.getGeneroMascota());
+        txtTipoMascota.setText(historial.getTipo());
+        txtEdadMascota.setText(String.valueOf(historial.getEdad()));
+        txtMotivo.setText(historial.getMotivoConsulta());
+        txtDiagnostico.setText(historial.getDiagnostico());
+        
+        
     }
 
     /**

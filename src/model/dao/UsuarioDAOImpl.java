@@ -7,7 +7,8 @@ package model.dao;
 import model.entidades.Usuario;
 import model.JsonUtil.JsonUtil;
 import java.util.List;
-
+import java.util.Map;
+import java.util.stream.Collectors;
 /**
  *
  * @author aylee
@@ -30,7 +31,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 .filter(u -> u.getUser().equals(username) && u.getPassword().equals(password))
                 .findFirst()
                 .orElse(null);
+    }   
+        @Override
+        public List<Usuario> obtenerTodos() {
+        return JsonUtil.leerDesdeArchivo(ARCHIVO_USUARIOS, Usuario.class);
     }
+
 
     @Override
     public boolean existeUsuario(String username) {
@@ -52,5 +58,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         listaUsuarios.add(usuario);
         JsonUtil.guardarEnArchivo(ARCHIVO_USUARIOS, listaUsuarios);
     }
+    
+    public Map<String, Long> contarUsuariosPorRol() {
+    List<Usuario> usuarios = JsonUtil.leerDesdeArchivo(ARCHIVO_USUARIOS, Usuario.class);
+    Map<String, Long> conteoPorRol = usuarios.stream()
+           .collect(Collectors.groupingBy(u -> u.getRole().name(), Collectors.counting()));
+    return conteoPorRol;
+}
 
 }

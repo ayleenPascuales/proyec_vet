@@ -25,6 +25,7 @@ import model.entidades.HistorialEspecifico;
 import model.entidades.Registros;
 import model.entidades.Usuario;
 import model.entidades.Veterinario;
+import view.HistorialView;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -610,6 +611,11 @@ public final class inicioEmpleados extends javax.swing.JFrame {
                 "Nombre", "Mascota", "Tipo", "Edad", "Motivo", "Fecha", "Veterinario"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanel9.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 890, 260));
@@ -726,6 +732,27 @@ public final class inicioEmpleados extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         cargarHistoriales();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        if (evt.getClickCount() == 1 && jTable2.getSelectedRow() != -1) {
+            int filaSeleccionada = jTable2.getSelectedRow();
+
+            String numeroDocumento = txtDocumento1.getText(); // Ajusta si tu JTextField tiene otro nombre
+            String fechaStr = jTable2.getValueAt(filaSeleccionada, 5).toString(); // Cambia el 5 si la fecha está en otra columna
+            LocalDate fechaConsulta = LocalDate.parse(fechaStr);
+
+            HistorialEspecificoDAOImpl dao = new HistorialEspecificoDAOImpl();
+            List<HistorialEspecifico> historiales = dao.buscarPorDocumentoYFecha(numeroDocumento, fechaConsulta);
+
+            if (!historiales.isEmpty()) {
+                HistorialEspecifico historial = historiales.get(0);
+                HistorialView detalle = new HistorialView(historial);
+                detalle.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró historial para esa fecha.");
+            }
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

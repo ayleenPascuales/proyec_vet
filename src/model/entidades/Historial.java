@@ -19,6 +19,10 @@ public class Historial {
     private LocalDate fechaConsulta;
     private String nombreMascota;
     private String veterinario;
+    
+    public Historial(){
+        
+    }
 
     public Historial(String numeroDocumento, String nombreDueño, String tipo, int edad, String motivoConsulta, LocalDate fechaConsulta, String nombreMascota, String veterinario) {
         this.numeroDocumento = numeroDocumento;

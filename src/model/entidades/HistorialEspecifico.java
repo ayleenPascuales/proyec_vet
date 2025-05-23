@@ -15,7 +15,12 @@ public class HistorialEspecifico extends Historial {
     private String telefono;
     private String generoMascota;
     private String diagnostico;
-
+    
+    
+    public HistorialEspecifico() {
+        super(); 
+    }
+    
     public HistorialEspecifico(String nroDocumento,String nombreDueño, String apellido, String telefono, String veterinario,
             LocalDate fechaConsulta, String nombreMascota, String generoMascota, String tipo, 
              int edad, String diagnostico , String motivoConsulta) {

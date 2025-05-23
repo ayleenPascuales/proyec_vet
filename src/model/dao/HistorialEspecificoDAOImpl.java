@@ -3,20 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.dao;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import model.dao.HistorialEspecificoDAO;
 import model.entidades.HistorialEspecifico;
 import model.JsonUtil.JsonUtil;
+
 /**
  *
  * @author aylee
  */
 public class HistorialEspecificoDAOImpl implements HistorialEspecificoDAO {
-    
-    private static final String ARCHIVO_HISTORIAL_ESPECIFICO= "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\historialEspecifico.json";
-    
+
+    private static final String ARCHIVO_HISTORIAL_ESPECIFICO = "C:\\Users\\aylee\\OneDrive\\Documentos\\NetBeansProjects\\proyecto4\\src\\resources\\data\\historialEspecifico.json";
+
     public HistorialEspecificoDAOImpl() {
         // Inicializar el archivo si no existe
         JsonUtil.inicializarArchivoSiNoExiste(ARCHIVO_HISTORIAL_ESPECIFICO);
@@ -32,15 +34,17 @@ public class HistorialEspecificoDAOImpl implements HistorialEspecificoDAO {
     @Override
     public List<HistorialEspecifico> buscarPorDocumento(String numeroDocumento) {
         return obtenerTodos().stream()
-            .filter(h -> h.getNumeroDocumento().equals(numeroDocumento))
-            .collect(Collectors.toList());
+                .filter(h -> h.getNumeroDocumento().trim().equalsIgnoreCase(numeroDocumento.trim()))
+                .collect(Collectors.toList());
     }
+    
 
     @Override
     public List<HistorialEspecifico> obtenerTodos() {
         return JsonUtil.leerDesdeArchivo(ARCHIVO_HISTORIAL_ESPECIFICO, HistorialEspecifico.class);
+        
     }
-
+    
     @Override
     public List<HistorialEspecifico> buscarPorNombreMascota(String nombreMascota) {
         return obtenerTodos().stream()
@@ -55,5 +59,12 @@ public class HistorialEspecificoDAOImpl implements HistorialEspecificoDAO {
                 .collect(Collectors.toList());
     }
 
-    
+    @Override
+    public List<HistorialEspecifico> buscarPorDocumentoYFecha(String numeroDocumento, LocalDate fechaConsulta) {
+        return obtenerTodos().stream()
+                .filter(h -> h.getNumeroDocumento().equals(numeroDocumento)
+                && h.getFechaConsulta().equals(fechaConsulta))
+                .collect(Collectors.toList());
+    }
+
 }

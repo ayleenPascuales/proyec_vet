@@ -34,6 +34,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
 
     // Componentes de la interfaz
     private static Usuario usuario;
+    private CitasDAO citasDAO = new CitasDAOImpl();
 
     public inicioClienteNw(Usuario usuario) {
         initComponents();
@@ -64,7 +65,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
             return;
         }
 
-        for (Historial h : historiales) {
+        for (HistorialEspecifico h : historiales) {
             modelo.addRow(new Object[]{
                 h.getNombreDueño(),
                 h.getNombreMascota(),
@@ -90,34 +91,6 @@ public class inicioClienteNw extends javax.swing.JFrame {
             cbVet.addItem(vet.getNombres() + " " + vet.getApellidos());
         }
     }
-
-    public void iniciarPopup() {
-    JMenuItem verHistorial = new JMenuItem("Ver historial");
-
-    verHistorial.addActionListener(e -> {
-        int filaSeleccionada = jTable1.getSelectedRow();
-        if (filaSeleccionada >= 0) {
-            String numeroDocumento = jTable1.getValueAt(filaSeleccionada, 0).toString();
-
-            HistorialEspecificoDAOImpl dao = new HistorialEspecificoDAOImpl();
-            List<HistorialEspecifico> historiales = dao.buscarPorDocumento(numeroDocumento);
-
-            if (!historiales.isEmpty()) {
-                HistorialEspecifico historial = historiales.get(0);
-                HistorialView detalleFrame = new HistorialView(historial);
-                detalleFrame.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "No se encontró historial para el documento " + numeroDocumento);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecciona una fila primero.");
-        }
-    });
-
-    popupHistorial.add(verHistorial);
-    jTable1.setComponentPopupMenu(popupHistorial);
-}
-
 
     private boolean validarFormulario() {
         String documento = txtDocumento1.getText().trim();
@@ -183,6 +156,7 @@ public class inicioClienteNw extends javax.swing.JFrame {
     }
 
     private boolean validarHoraConSegundos(String horaTexto) {
+        List<Citas> citasExistentes = citasDAO.obtenerTodas();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
         try {
@@ -194,8 +168,38 @@ public class inicioClienteNw extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "La hora debe estar entre 08:00:00 y 18:00:00.");
                 return false;
             }
+            int minuto = hora.getMinute();
+            int segundo = hora.getSecond();
+
+            if (!((minuto == 0 || minuto == 15 || minuto == 30 || minuto == 45) && segundo == 0)) {
+                JOptionPane.showMessageDialog(null, "La hora debe ser en intervalos de 15 minutos (ejemplo: 10:00:00, 10:15:00, 10:30:00, 10:45:00).");
+                return false;
+            }
+
+            Date fechaSeleccionada = JdateFecha.getDate();
+            if (fechaSeleccionada == null) {
+                JOptionPane.showMessageDialog(null, "Seleccione una fecha válida.");
+                return false;
+            }
+
+            LocalDate fechaCitaSeleccionada = fechaSeleccionada.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+
+            // Validar si ya existe una cita con la misma fecha y hora
+            for (Citas cita : citasExistentes) {
+                LocalDate fechaCitaExistente = cita.getFechaConsulta();
+                if (fechaCitaExistente.equals(fechaCitaSeleccionada)) {
+                    if (cita.gethoraConsulta().equals(hora)) {
+                        JOptionPane.showMessageDialog(null, "Ya existe una cita programada a esa hora.");
+                        return false;
+                    }
+                }
+
+            }
 
             return true;
+
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(null, "Hora inválida. Usa el formato HH:mm:ss (ej: 14:30:45).");
             return false;
@@ -837,8 +841,24 @@ public class inicioClienteNw extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdocumento1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       
+        if (evt.getClickCount() == 1 && jTable1.getSelectedRow() != -1) {
+            int filaSeleccionada = jTable1.getSelectedRow();
 
+            String numeroDocumento = txtdocumentoHistorial.getText(); // Ajusta si tu JTextField tiene otro nombre
+            String fechaStr = jTable1.getValueAt(filaSeleccionada, 5).toString(); // Cambia el 5 si la fecha está en otra columna
+            LocalDate fechaConsulta = LocalDate.parse(fechaStr);
+
+            HistorialEspecificoDAOImpl dao = new HistorialEspecificoDAOImpl();
+            List<HistorialEspecifico> historiales = dao.buscarPorDocumentoYFecha(numeroDocumento, fechaConsulta);
+
+            if (!historiales.isEmpty()) {
+                HistorialEspecifico historial = historiales.get(0);
+                HistorialView detalle = new HistorialView(historial);
+                detalle.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró historial para esa fecha.");
+            }
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

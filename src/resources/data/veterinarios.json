@@ -22,5 +22,18 @@
     "fechaNacimiento": "1990-08-22",
     "email": "carlos.rodriguez@animalslove.co",
     "telefono": "3217654321"
-  }
+  },
+  {
+    "user": "mgarcia",
+    "password": "vet789secure",
+    "cargo": "Veterinario",
+    "experiencia": "5",
+    "numeroDocumento": "109876543",
+    "nombres": "María",
+    "apellidos": "García López",
+    "fechaNacimiento": "1987-04-15",
+    "email": "maria.garcia@animalslove.co",
+    "telefono": "3129876543"
+}
+
 ]

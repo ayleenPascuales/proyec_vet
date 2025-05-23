@@ -15,4 +15,5 @@ public interface UsuarioDAO {
     boolean existeUsuario(String username);
     public void guardarUsuario(Usuario usuario);
     public Usuario obtenerUsuarioPorUsername(String username);
+    public List<Usuario> obtenerTodos();
 }
